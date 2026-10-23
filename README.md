@@ -158,11 +158,11 @@ Changing a shell variable alone does not reconfigure the running engine. Keep th
 
 - The combined package is an overview and configuration index. Implementation trees live in the standalone repositories; the historical hub folders are snapshots.
 - The first long request after restart can still pay lazy-loading cost despite a short warm-up. Production counters cover a bounded check, not extended availability.
-- Packed KV and larger context are reviewed offline candidates; GB10 cache identity, eviction/pressure and needle tests remain pending. Allocator arithmetic is not a serving result.
-- Prefix storage: local storage overlay is cleared for gated GB10 testing. The host-RAM tier is a CPU/network prototype; engine/catalogue integration and real multi-request restoration remain unqualified.
-- Prefill ordering: independent review found an admission-failure path that could issue empty steps indefinitely. A fix is implemented and CPU-tested; fresh independent review and GB10 validation are pending. Earlier simulator predictions do not establish GB10 improvement.
+- KV packing + 1M: GB10 validation in progress.
+- Prefix storage: cleared for gated GB10 testing only.
+- Prefill ordering: an independent check found a scheduler liveness bug; it is fixed (45 CPU tests) and under a second independent check.
 - Native drafter fidelity: online-block attention and FP32 head corrections are implemented in a development candidate, but the strict stage-zero attention gate still fails. Historical speed figures predate that correction and are not a qualified gain for the corrected worker.
-- Drafter self-distillation tooling is in progress. The [exact-ceiling method](https://github.com/ProprietaryLegal/dsv41-exact-acceptance-ceiling) identifies headroom; no adapted drafter gain is established.
+- Drafter self-distillation: a fast training path is built, but it does not yet match the exact reference math closely enough, so it is not used for training yet.
 - Further upstream adoption is offline, opt-in work: target MoE row splitting, replay/upload changes, Engram lookahead, and separate configuration candidates. It has no GB10 performance qualification and should be tested independently before combination.
 - One x86 host is a shared performance dependency. Recovery and target-only behavior must be tested under your own operational constraints.
 
