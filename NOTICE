@@ -1,0 +1,16 @@
+PLI Labs — DeepSeek-V4.1-Flash-2xDGX-Spark-x86-offload
+Copyright 2026 Proprietary Legal Intelligence LLC
+
+PLI Labs overview and configuration examples are distributed under Apache-2.0.
+This package has no combined code directory and contains no vendored upstream
+software, patch sets, model weights, or third-party licence files. Implementation
+code is obtained from the linked standalone component repositories.
+
+External components: DeepSeek model/drafter; HeNryous Spark image and patches;
+sudoingX two-node launcher; turboderp's exllamav3; vLLM. They are not redistributed
+in this package and retain their own licences. Component-specific licence files
+and NOTICEs, including native-kernel attributions, accompany the standalone
+implementations. This NOTICE does not relicense them or model weights.
+
+The complete Apache-2.0 licence for the PLI Labs material in this package is
+in LICENSES/Apache-2.0.txt. External dependencies are not redistributed here.
