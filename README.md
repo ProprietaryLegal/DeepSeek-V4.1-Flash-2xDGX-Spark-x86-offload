@@ -41,6 +41,7 @@ The standalone repositories are canonical. The older hub folders are snapshots. 
 | Remote Engram | [source](https://github.com/ProprietaryLegal/dsv41-remote-engram-rdma) | [entry](https://huggingface.co/ProprietaryLegal/dsv41-remote-engram-rdma) | Production; exact local fallback |
 | ofl transport | [source](https://github.com/ProprietaryLegal/ofl-rdma-transport) | [entry](https://huggingface.co/ProprietaryLegal/ofl-rdma-transport) | Production |
 | Native 1017 drafter | [source](https://github.com/ProprietaryLegal/dsv41-native-1017-drafter-sm86) | [entry](https://huggingface.co/ProprietaryLegal/dsv41-native-1017-drafter-sm86) | Merged opt-in only; strict fidelity gate fails; not serving |
+| KV page packing | [source](https://github.com/ProprietaryLegal/dsv41-kv-page-packing-1m) | [entry](https://huggingface.co/ProprietaryLegal/dsv41-kv-page-packing-1m) | KV page packing validated on GB10 at 327,680 (production promotion pending); 524,288 serves correctly but is held for a prefill regression under investigation. 1M untested on GB10. |
 | Long-context tools | [source](https://github.com/ProprietaryLegal/dsv41-longctx-bench-tools) | [entry](https://huggingface.co/ProprietaryLegal/dsv41-longctx-bench-tools) | Measured benchmark tooling |
 | Exact acceptance ceiling | [source](https://github.com/ProprietaryLegal/dsv41-exact-acceptance-ceiling) | [entry](https://huggingface.co/ProprietaryLegal/dsv41-exact-acceptance-ceiling) | Research-only; method and aggregates |
 | Full stack | [source](https://github.com/ProprietaryLegal/DeepSeek-V4.1-Flash-2xDGX-Spark-x86-offload) | [entry](https://huggingface.co/ProprietaryLegal/DeepSeek-V4.1-Flash-2xDGX-Spark-x86-offload) | Production configuration overview |
@@ -158,7 +159,7 @@ Changing a shell variable alone does not reconfigure the running engine. Keep th
 
 - The combined package is an overview and configuration index. Implementation trees live in the standalone repositories; the historical hub folders are snapshots.
 - The first long request after restart can still pay lazy-loading cost despite a short warm-up. Production counters cover a bounded check, not extended availability.
-- KV packing + 1M: GB10 validation in progress.
+- KV page packing validated on GB10 at 327,680 (production promotion pending); 524,288 serves correctly but is held for a prefill regression under investigation. 1M untested on GB10.
 - Prefix storage: cleared for gated GB10 testing only.
 - Prefill ordering: an independent check found a scheduler liveness bug; it is fixed (45 CPU tests) and under a second independent check.
 - Native drafter fidelity: online-block attention and FP32 head corrections are implemented in a development candidate, but the strict stage-zero attention gate still fails. Historical speed figures predate that correction and are not a qualified gain for the corrected worker.
