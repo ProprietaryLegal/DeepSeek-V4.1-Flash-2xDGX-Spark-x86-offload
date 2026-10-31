@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security problem
+    url: https://github.com/ProprietaryLegal/DeepSeek-V4.1-Flash-2xDGX-Spark-x86-offload/security/advisories/new
+    about: Report security problems privately, not as a public issue.
+  - name: Research archive (every experiment branch)
+    url: https://github.com/ProprietaryLegal/dsv41-offload
+    about: Questions about a specific experiment or component history.

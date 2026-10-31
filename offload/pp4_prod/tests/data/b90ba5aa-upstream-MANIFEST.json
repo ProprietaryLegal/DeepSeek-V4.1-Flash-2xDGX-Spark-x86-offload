@@ -1,0 +1,272 @@
+{
+ "base": "596ba1cf4e3b11be29b41a57e7f69a5d8efa4799",
+ "files": [
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/distributed/device_communicators/shm_broadcast.py",
+   "item": "0091",
+   "path": "dist/vllm/distributed/device_communicators/shm_broadcast.py",
+   "sha256": "bcd86fd49e3fd4072d78533193d7d13afd088e8e1c239896ebf1311e6e8e6a1b",
+   "source": "08b9d8a0ca2bac388b0fe5c7d334e3db80ed6d95:offload/upfix/overlay/vllm/distributed/device_communicators/shm_broadcast.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/v1/kv_offload/tiering/async_lookup.py",
+   "item": "0091",
+   "path": "dist/vllm/v1/kv_offload/tiering/async_lookup.py",
+   "sha256": "7c04c46385a2b0f7796f2e4c194a3107a91e22e160193e4f2d961fa44e236750",
+   "source": "08b9d8a0ca2bac388b0fe5c7d334e3db80ed6d95:offload/upfix/overlay/vllm/v1/kv_offload/tiering/async_lookup.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/block_table.py",
+   "item": "0091",
+   "path": "dist/vllm/v1/worker/gpu/block_table.py",
+   "sha256": "9de6fa6d9ce0964b879abc7f2a6f00715b5c8d5947fdd16f5ea7cafd2528c742",
+   "source": "08b9d8a0ca2bac388b0fe5c7d334e3db80ed6d95:offload/upfix/overlay/vllm/v1/worker/gpu/block_table.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/v1/core/sched/scheduler.py",
+   "item": "0091+0075",
+   "path": "dist/vllm/v1/core/sched/scheduler.py",
+   "sha256": "079986917de3505a29e13bba3837a8b756bac3928598de01258018a4cc1d4e71",
+   "source": "08b9d8a0ca2bac388b0fe5c7d334e3db80ed6d95:offload/upfix/overlay-0075/vllm/v1/core/sched/scheduler.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/layers/indexer_topk.py",
+   "item": "topk",
+   "path": "dist/vllm/model_executor/layers/indexer_topk.py",
+   "sha256": "706816bc69525167a3e17174742e918695ebb6b542651fabfb3f861b48407407",
+   "source": "08b9d8a0ca2bac388b0fe5c7d334e3db80ed6d95:offload/upfix/topk/overlay/vllm/model_executor/layers/indexer_topk.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v41/nvidia/model_state.py",
+   "item": "0075+0067",
+   "path": "dist/vllm/models/deepseek_v41/nvidia/model_state.py",
+   "sha256": "1e0ce91d2a810255b287e44d7e9f3c8f996c5cd32f00e20f0910bb93bdad069f",
+   "source": "5aad62527879f2c22a44367fdd503c4a91cc7d21:offload/upstream_adopt/overlay/vllm/models/deepseek_v41/nvidia/model_state.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v41/replay_skip.py",
+   "item": "0075",
+   "path": "dist/vllm/models/deepseek_v41/replay_skip.py",
+   "sha256": "cc6dcd79884d6726cd3b8cd0bd13f263408bd95289c2303dc823423a6b922b65",
+   "source": "67894521fe61565913da1a71f4c55ba6f9ee7eda:offload/up3/overlay/replay/vllm/models/deepseek_v41/replay_skip.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/input_batch.py",
+   "item": "0075",
+   "path": "dist/vllm/v1/worker/gpu/input_batch.py",
+   "sha256": "056f7eec511c71f25f82e6acb660fa5f405615efbf6d096ec8753f2f1c91462f",
+   "source": "67894521fe61565913da1a71f4c55ba6f9ee7eda:offload/up3/overlay/replay/vllm/v1/worker/gpu/input_batch.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm_exl3_moe/forward.py",
+   "item": "0064",
+   "path": "dist/vllm_exl3_moe/forward.py",
+   "sha256": "c06ba9b66e6349fc4c0bad93a74e62c22d489f1a9d54596a5d10fd0fcb7c8966",
+   "source": "6c345ad213e78515b634fe0e0b2a0e2d25e20033:offload/up3/overlay/split/vllm_exl3_moe/forward.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm_exl3_moe/smoe.py",
+   "item": "0064",
+   "path": "dist/vllm_exl3_moe/smoe.py",
+   "sha256": "954976235fb0064204112b4b5388a6b04a1f0ebf092bf6ce6666584ac99b1497",
+   "source": "6c345ad213e78515b634fe0e0b2a0e2d25e20033:offload/up3/overlay/split/vllm_exl3_moe/smoe.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v41/common/ops/swa_fused.py",
+   "item": "0067",
+   "path": "dist/vllm/models/deepseek_v41/common/ops/swa_fused.py",
+   "sha256": "3deeeb8cd82b49acaa405bff7a1827c97984ea12e75c71af5986cdc46f1bc5be",
+   "source": "6c345ad213e78515b634fe0e0b2a0e2d25e20033:offload/up3/overlay/vor/vllm/models/deepseek_v41/common/ops/swa_fused.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/v1/attention/backends/mla/sparse_swa.py",
+   "item": "0067",
+   "path": "dist/vllm/v1/attention/backends/mla/sparse_swa.py",
+   "sha256": "1995997b763d57fcbb4b1028dc6f5831dd26294d6911a4c485801856f2321173",
+   "source": "6c345ad213e78515b634fe0e0b2a0e2d25e20033:offload/up3/overlay/vor/vllm/v1/attention/backends/mla/sparse_swa.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py",
+   "item": "0085b",
+   "path": "dist/vllm/v1/engine/core.py",
+   "sha256": "dc7b3fec51b84256567fd58b21d6bb6ede6e3335b12974de88917ec08fb8db0f",
+   "source": "5aad62527879f2c22a44367fdd503c4a91cc7d21:offload/upx/overlay/vllm/v1/engine/core.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py",
+   "item": "0085b+trim",
+   "path": "dist/vllm/v1/worker/gpu_worker.py",
+   "sha256": "10ab55642238131bfb8b2ce60b347d4bba896b89b3a49aa45afe01bc8a3efe66",
+   "source": "08574bdc2b5f5ad8bc906565d47624b94c3b7c66:offload/nout_trim/overlay/dist/vllm/v1/worker/gpu_worker.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/spec_decode/remote_dspark/__init__.py",
+   "item": "0075+trim",
+   "path": "remote_dspark/__init__.py",
+   "sha256": "9467a2214fb05bc8a10a63d4dc2faa8c646af949d730c9e3613978a66c2b09cc",
+   "source": "08574bdc2b5f5ad8bc906565d47624b94c3b7c66:offload/nout_trim/overlay/remote_dspark/__init__.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/spec_decode/remote_dspark/breaker.py",
+   "item": "0075+trim",
+   "path": "remote_dspark/breaker.py",
+   "sha256": "78bcc9c0504bc9c6dba3f48925408c48749a9ee88dba3498ac42d67e711e3887",
+   "source": "08574bdc2b5f5ad8bc906565d47624b94c3b7c66:offload/nout_trim/overlay/remote_dspark/breaker.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/spec_decode/remote_dspark/client.py",
+   "item": "0075+trim",
+   "path": "remote_dspark/client.py",
+   "sha256": "a9222d4aab14abcf960c99dec0e37c80088210a532f5f91d6058583cc9cb3bd4",
+   "source": "08574bdc2b5f5ad8bc906565d47624b94c3b7c66:offload/nout_trim/overlay/remote_dspark/client.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/spec_decode/remote_dspark/config.py",
+   "item": "0075+trim",
+   "path": "remote_dspark/config.py",
+   "sha256": "e4308418e92b066c2410268bff97dd27904c80428f789541d18652480956f66b",
+   "source": "08574bdc2b5f5ad8bc906565d47624b94c3b7c66:offload/nout_trim/overlay/remote_dspark/config.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/spec_decode/remote_dspark/fused_gather.py",
+   "item": "0075+trim",
+   "path": "remote_dspark/fused_gather.py",
+   "sha256": "6c42c28e5d6f1918081d939c1b31d6895af54ca5328ea346903a3f0ad3a98c6f",
+   "source": "08574bdc2b5f5ad8bc906565d47624b94c3b7c66:offload/nout_trim/overlay/remote_dspark/fused_gather.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/spec_decode/remote_dspark/gather.py",
+   "item": "0075+trim",
+   "path": "remote_dspark/gather.py",
+   "sha256": "31eb8151aa5c7928dcfbd006a554fc5204dfefd26a90230be6ba227d1cfd40e7",
+   "source": "08574bdc2b5f5ad8bc906565d47624b94c3b7c66:offload/nout_trim/overlay/remote_dspark/gather.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/spec_decode/remote_dspark/hostflag.py",
+   "item": "0075+trim",
+   "path": "remote_dspark/hostflag.py",
+   "sha256": "7e1ce6e645c1c25c8f33e305ca35a05379a8c6a85920c1e3f75462a9fa76b130",
+   "source": "08574bdc2b5f5ad8bc906565d47624b94c3b7c66:offload/nout_trim/overlay/remote_dspark/hostflag.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/spec_decode/remote_dspark/mock_worker.py",
+   "item": "0075+trim",
+   "path": "remote_dspark/mock_worker.py",
+   "sha256": "09dabb928d5f6c659553a1beac0259ab6590958683bb1800c37ac016af0013db",
+   "source": "08574bdc2b5f5ad8bc906565d47624b94c3b7c66:offload/nout_trim/overlay/remote_dspark/mock_worker.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/spec_decode/remote_dspark/o1_adapter.py",
+   "item": "0075+trim",
+   "path": "remote_dspark/o1_adapter.py",
+   "sha256": "ee0c171c2aadfd0cbc80d5cf036087b6a94fabbbe0e441e60c68b8c690943e38",
+   "source": "08574bdc2b5f5ad8bc906565d47624b94c3b7c66:offload/nout_trim/overlay/remote_dspark/o1_adapter.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/spec_decode/remote_dspark/proxy_proc.py",
+   "item": "0075+trim",
+   "path": "remote_dspark/proxy_proc.py",
+   "sha256": "97d862f236ee9f316a85fd8ab896b5147e6df3959cc690b38d0fa90c385c1b61",
+   "source": "08574bdc2b5f5ad8bc906565d47624b94c3b7c66:offload/nout_trim/overlay/remote_dspark/proxy_proc.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/spec_decode/remote_dspark/round.py",
+   "item": "0075+trim",
+   "path": "remote_dspark/round.py",
+   "sha256": "4517dc5cdc869745bad5a184457aba3f884822c8008b1c4a730b5e88a76ba817",
+   "source": "08574bdc2b5f5ad8bc906565d47624b94c3b7c66:offload/nout_trim/overlay/remote_dspark/round.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/spec_decode/remote_dspark/roundcore.py",
+   "item": "0075+trim",
+   "path": "remote_dspark/roundcore.py",
+   "sha256": "7fddb63bb34e689466ae0ca419de16a3bf08397a820a8c94548457eb34aba65e",
+   "source": "08574bdc2b5f5ad8bc906565d47624b94c3b7c66:offload/nout_trim/overlay/remote_dspark/roundcore.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/spec_decode/remote_dspark/shmregion.py",
+   "item": "0075+trim",
+   "path": "remote_dspark/shmregion.py",
+   "sha256": "e029ac36ff39a5fc9cc1108514c499962770bd28965b9d10d988d4f6b5a93612",
+   "source": "08574bdc2b5f5ad8bc906565d47624b94c3b7c66:offload/nout_trim/overlay/remote_dspark/shmregion.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/spec_decode/remote_dspark/speculator.py",
+   "item": "0075+trim",
+   "path": "remote_dspark/speculator.py",
+   "sha256": "a8d9cfbb07dc82eaa5ccb7e147dc5787bb6c3c6e99df7c1a59560d68b3ac8450",
+   "source": "08574bdc2b5f5ad8bc906565d47624b94c3b7c66:offload/nout_trim/overlay/remote_dspark/speculator.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/spec_decode/remote_dspark/state.py",
+   "item": "0075+trim",
+   "path": "remote_dspark/state.py",
+   "sha256": "647b887e432911f81aee8adf153d9240e58dffc5140cbdbda17de288d3fb6d62",
+   "source": "08574bdc2b5f5ad8bc906565d47624b94c3b7c66:offload/nout_trim/overlay/remote_dspark/state.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/spec_decode/remote_dspark/stats.py",
+   "item": "0075+trim",
+   "path": "remote_dspark/stats.py",
+   "sha256": "9a58853a6254614918d0d2b2756cbca7e3d41ecae7c7b37c7d85a96959e20e61",
+   "source": "08574bdc2b5f5ad8bc906565d47624b94c3b7c66:offload/nout_trim/overlay/remote_dspark/stats.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/spec_decode/remote_dspark/streamsync.py",
+   "item": "0075+trim",
+   "path": "remote_dspark/streamsync.py",
+   "sha256": "4d26e408f562659ed143405ef6e8977fcbda6735e192c941fa023db3cdc46cab",
+   "source": "08574bdc2b5f5ad8bc906565d47624b94c3b7c66:offload/nout_trim/overlay/remote_dspark/streamsync.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/spec_decode/remote_dspark/suffix_provenance.py",
+   "item": "0075+trim",
+   "path": "remote_dspark/suffix_provenance.py",
+   "sha256": "f45966212bdb01ad71b219a8a97082c58b3074af9c1edbb9679c070d791c2c22",
+   "source": "08574bdc2b5f5ad8bc906565d47624b94c3b7c66:offload/nout_trim/overlay/remote_dspark/suffix_provenance.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/spec_decode/remote_dspark/transport.py",
+   "item": "0075+trim",
+   "path": "remote_dspark/transport.py",
+   "sha256": "4b59d0764cb364103a2e3cb3ddf2b04108891a092a0269edd1d3e24be5e4977b",
+   "source": "08574bdc2b5f5ad8bc906565d47624b94c3b7c66:offload/nout_trim/overlay/remote_dspark/transport.py"
+  },
+  {
+   "container_path": "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/spec_decode/remote_dspark/wire.py",
+   "item": "0075+trim",
+   "path": "remote_dspark/wire.py",
+   "sha256": "bdcf6340f8f42fca4940889e18d3a80b652342e82eaa887dd25a29c47778ec2a",
+   "source": "08574bdc2b5f5ad8bc906565d47624b94c3b7c66:offload/nout_trim/overlay/remote_dspark/wire.py"
+  }
+ ],
+ "image": "ghcr.io/henryous/deepseek-v41-1017-dgx-spark:v5",
+ "k1_overlay": "offload/kvpack MANIFEST 559c5867ba42 (unchanged, mounted as in production)",
+ "library": {
+  "container_path": "/opt/dsv41-upfix/dsv41_topk.so",
+  "pinned_source": "~/dsv41-offload-prod/pinned/dsv41_topk.so (sparkhead; copied from the upf-topk T1 build)",
+  "sha256": "7e03af0d46a1de497987209aba65d96a7e44d5d26a7c829cd805971302e74171"
+ },
+ "plan": "documents/plans/2026-10-28-UPSTREAM-INSTALL.md",
+ "remote_dspark_mount": "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/spec_decode/remote_dspark",
+ "schema": "dsv41-upstream-all-v1",
+ "serve_argv": {
+  "--long-prefill-token-threshold": "1024",
+  "--max-num-batched-tokens": "8192",
+  "--speculative-config": "{\"method\":\"dspark\",\"num_speculative_tokens\":5,\"num_speculative_tokens_per_batch_size\":[[1,4,5]]}"
+ },
+ "serve_env": {
+  "EXL3_CPU_PIN": "5-9,15-19",
+  "EXL3_RDMA_DEVICES": "rocep1s0f1,roceP2p1s0f1"
+ },
+ "switches": {
+  "VLLM_DSPARK_REMOTE_N_OUT": "window",
+  "VLLM_DSV41_INDEXER_DEFER": "1",
+  "VLLM_DSV41_RELEASE_TOKENS": "131072",
+  "VLLM_DSV41_REPLAY_SKIP": "1",
+  "VLLM_DSV41_TOPK_FIX": "1",
+  "VLLM_DSV41_TOPK_FIX_SO": "/opt/dsv41-upfix/dsv41_topk.so",
+  "VLLM_DSV41_VOR_FUSED": "1",
+  "VLLM_EXL3_MOE_SPLIT_MAX_TOKENS": "63"
+ }
+}

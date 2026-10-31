@@ -1,0 +1,46 @@
+name: Performance report
+description: A measurement with tools/bench.py, on this stack or another recipe.
+labels: [performance]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Attach the JSON file `tools/bench.py run` wrote. It contains token counts and timings, not prompt or output text.
+        Same-conditions numbers for other recipes are welcome too.
+  - type: input
+    id: recipe
+    attributes:
+      label: Recipe and commit
+      description: e.g. this repository at abc1234, or another recipe with its engine version.
+    validations:
+      required: true
+  - type: input
+    id: command
+    attributes:
+      label: Command
+      description: The exact `tools/bench.py run ...` command line.
+    validations:
+      required: true
+  - type: input
+    id: clock
+    attributes:
+      label: GPU clock cap and observed SM clock
+      description: e.g. cap 2200 MHz, observed 2150-2190 under load (tools/node_watch.py logs it).
+    validations:
+      required: true
+  - type: textarea
+    id: table
+    attributes:
+      label: Results table
+      description: Output of `tools/bench.py table <run.json>`, or `compare` against one of the runs in runs/.
+      render: markdown
+  - type: textarea
+    id: conditions
+    attributes:
+      label: Anything else running, and other differences
+      description: Other workloads on the machines, context limit, weights, extra hardware.
+  - type: textarea
+    id: json
+    attributes:
+      label: Run JSON
+      description: Drag the JSON file here.

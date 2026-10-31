@@ -1,0 +1,81 @@
+{
+ "authored_files": [
+  ".github/ISSUE_TEMPLATE/bug_report.yml",
+  ".github/ISSUE_TEMPLATE/config.yml",
+  ".github/ISSUE_TEMPLATE/feature_request.yml",
+  ".github/ISSUE_TEMPLATE/performance_report.yml",
+  ".github/PULL_REQUEST_TEMPLATE.md",
+  "CHANGELOG.md",
+  "CONTRIBUTING.md",
+  "CREDITS.md",
+  "LICENSE",
+  "LICENSES/Apache-2.0.txt",
+  "LICENSES/HeNryous-deepseek-v41-1017-dgx-spark-NOTICE.txt",
+  "LICENSES/exllamav3-MIT.txt",
+  "NOTICE",
+  "README.md",
+  "SECURITY.md",
+  "docs/architecture.md",
+  "docs/comparison.md",
+  "docs/install.md",
+  "docs/measurements.md",
+  "docs/operations.md",
+  "docs/publication.md",
+  "runs/2026-10-31-sparkdash-protocol-ebc29ed8.json",
+  "runs/README.md",
+  "tools/bench.py",
+  "tools/fake_server.py",
+  "tools/node_watch.py",
+  "tools/sparkbench.py",
+  "tools/tests/test_bench.py",
+  "tools/tests/test_sparkbench.py"
+ ],
+ "dropped_by_reason": {
+  "internal marker": 1,
+  "internal operator runbook (LAN addresses, private paths); replaced by docs/operations.md": 1,
+  "internal plans, lane briefs and reviews (campaign process, not code)": 50,
+  "local backup copies": 1,
+  "prefix tier code held back from this push (three pinned files need a source-side fix and new pins); measurements in docs": 86,
+  "research reading notes and upstream metadata dumps, not used by production": 35,
+  "stale numbers (before 2026-10-28); replaced by docs/measurements.md": 1
+ },
+ "dropped_named_files": [
+  "BENCHMARKS.md",
+  "PHASE1_DONE",
+  "RUNBOOK.md",
+  "dsv41.env.bak-20261022-sparkfix"
+ ],
+ "fix2_renamed_paths": [
+  "offload/dspark/copy_to_x86host.py",
+  "offload/dspark/worker/sync_to_x86host.sh",
+  "offload/engram/tests/venv.lock.x86host.txt",
+  "offload/roundtrip/observe_x86host.sh",
+  "offload/roundtrip/run_x86host.sh"
+ ],
+ "fix2_rewritten_files": 212,
+ "fix3_loader_swaps": [
+  "bench.py",
+  "offload/bench/bench2.py",
+  "offload/dspark/worker/tests/test_tp2.py",
+  "offload/dspark/worker/tools/bench.py",
+  "offload/dspark/worker/tools/parity_ref.py",
+  "offload/dspark/worker/tools/parity_substeps.py",
+  "offload/dspark/worker/tools/tp2_bench.py",
+  "offload/engram/tests/logit_ab.py"
+ ],
+ "fix4_rewritten_files": [
+  "offload/RUNBOOK-offload.md",
+  "offload/bench/suite.sh",
+  "offload/launch/OPERATIONS.md",
+  "offload/launch/window.sh",
+  "offload/promote/k1/README.md"
+ ],
+ "prefix_tier": "drop",
+ "private_hex_runs_zeroed": {},
+ "production_files_taken": 508,
+ "source": {
+  "commit": "ebc29ed8c0c2497be583eaf95669c71bab33b4b5",
+  "export": "git archive, offload/results excluded at export",
+  "repository": "private dsv41-deploy (production branch prod/matter-l2b)"
+ }
+}

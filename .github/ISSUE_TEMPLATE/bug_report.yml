@@ -1,0 +1,47 @@
+name: Bug report
+description: Something fails, crashes, hangs or gives wrong output.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Please remove addresses, host names and any prompt text you would not post publicly.
+  - type: input
+    id: commit
+    attributes:
+      label: Commit
+      description: Output of `git rev-parse --short HEAD` in your checkout.
+    validations:
+      required: true
+  - type: checkboxes
+    id: components
+    attributes:
+      label: Components on
+      options:
+        - label: remote Engram (x86 host)
+        - label: remote drafter (x86 host)
+        - label: async round proxy
+        - label: persistent prefix tier
+        - label: plain two-Spark serve (no x86 host)
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what you expected
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: How to reproduce
+      description: The request (settings, prompt length, streams) or the command that triggers it.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Engine log lines around the failure and the output of `./status.sh`.
+      render: text
+  - type: textarea
+    id: hardware
+    attributes:
+      label: Hardware and software
+      description: Spark count and memory, x86 host, drafter GPUs, image tag, GPU clock cap.

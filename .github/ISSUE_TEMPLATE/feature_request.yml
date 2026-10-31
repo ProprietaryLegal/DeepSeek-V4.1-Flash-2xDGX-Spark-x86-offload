@@ -1,0 +1,20 @@
+name: Feature request or idea
+description: A change to the stack, the bench tool or the docs.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What you would like
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: The workload or measurement that motivates it.
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Measurements, upstream links or prior art, if any.

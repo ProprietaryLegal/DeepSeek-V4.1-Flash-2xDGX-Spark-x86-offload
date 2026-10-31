@@ -1,16 +1,25 @@
-PLI Labs — DeepSeek-V4.1-Flash-2xDGX-Spark-x86-offload
+PLI Labs — DeepSeek-V4.1-Flash on two DGX Sparks with an x86 offload host
 Copyright 2026 Proprietary Legal Intelligence LLC
 
-PLI Labs overview and configuration examples are distributed under Apache-2.0.
-This package has no combined code directory and contains no vendored upstream
-software, patch sets, model weights, or third-party licence files. Implementation
-code is obtained from the linked standalone component repositories.
+Original PLI Labs code is licensed under Apache-2.0 (LICENSE; also LICENSES/Apache-2.0.txt).
 
-External components: DeepSeek model/drafter; HeNryous Spark image and patches;
-sudoingX two-node launcher; turboderp's exllamav3; vLLM. They are not redistributed
-in this package and retain their own licences. Component-specific licence files
-and NOTICEs, including native-kernel attributions, accompany the standalone
-implementations. This NOTICE does not relicense them or model weights.
+Third-party components in this tree:
+- vLLM: overlay files under offload/**/overlay/vllm/ and patches against vLLM sources. Apache-2.0; Copyright contributors
+  to the vLLM project, retained in SPDX headers. Upstream licence: https://github.com/vllm-project/vllm/blob/main/LICENSE.
+  The top-k kernels in the upstream overlay come from vLLM commit 3090266d8.
+- HeNryous/deepseek-v41-1017-dgx-spark: patches 0051, 0064, 0067, 0075, 0085b and 0091 and image files, composed into
+  offload/upstream_all/ and offload/pp4_prod/. Apache-2.0. Its NOTICE (which also carries the sudoingX
+  dgx-spark-deepseek-v41 NOTICE) is reproduced in LICENSES/HeNryous-deepseek-v41-1017-dgx-spark-NOTICE.txt.
+- sudoingX/dgx-spark-deepseek-v41: serving recipe (launcher) and the vllm_exl3_moe plugin lineage; overlay files under
+  offload/**/overlay/vllm_exl3_moe/. Apache-2.0.
+- TensorFold (bertholomus/TensorFold, branch deepseek-v41-tp2, commit 90b68e06): expert sources built unchanged by
+  offload/kvpack/overlay/vllm_exl3_moe/tf_experts.py. Apache-2.0.
+- exllamav3 (turboderp): EXL3 trellis decoding adapted in the drafter worker. MIT; LICENSES/exllamav3-MIT.txt.
+- ro99/strata (commit 015b075): portions adapted in offload/dspark/kernels/mxfp4/regfed.cu. Apache-2.0;
+  offload/dspark/kernels/mxfp4/LICENSE.strata and offload/dspark/kernels/mxfp4/NOTICE.
+- Build-time donors pinned by digest but not vendored: sybil-solutions/trellis-serve (MIT; Marlin-derived code
+  Apache-2.0), Zeuss5/cuda-exl3 (MIT), exllamav3 v1.6.4. See offload/dspark/worker/tools/donors.lock.json.
 
-The complete Apache-2.0 licence for the PLI Labs material in this package is
-in LICENSES/Apache-2.0.txt. External dependencies are not redistributed here.
+Source files retain their SPDX and attribution notices. Third-party material retains its original licence.
+DeepSeek supplies the model, the DSpark drafter and the Engram tables (MIT); no model files are distributed here.
+See CREDITS.md for every project this work builds on.

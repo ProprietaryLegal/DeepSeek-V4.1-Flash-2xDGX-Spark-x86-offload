@@ -1,0 +1,3812 @@
+{
+ "tool": "sparkbench.py (sparkDash b96244a protocol)",
+ "url": "http://<head>:8000",
+ "model": "DeepSeek-V4.1-Flash-1017-EXL3-Spark-TP2",
+ "started": "2026-10-31T03:51:47Z",
+ "decode": [
+  {
+   "kind": "prose",
+   "concurrency": 1,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 1,
+   "errors": [],
+   "perStreamTps": [
+    65.95
+   ],
+   "meanPerStreamTps": 65.95,
+   "aggregateTps": 65.95,
+   "ttftMs": [
+    123.7
+   ],
+   "completionTokens": [
+    400
+   ],
+   "reasoningChunks": [
+    0
+   ],
+   "finish": [
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 127.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 635.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 272.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 272.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    32
+   ],
+   "cachedTokens": [
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t0",
+   "rep": 0
+  },
+  {
+   "kind": "prose",
+   "concurrency": 1,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 1,
+   "errors": [],
+   "perStreamTps": [
+    66.14
+   ],
+   "meanPerStreamTps": 66.14,
+   "aggregateTps": 66.14,
+   "ttftMs": [
+    147.1
+   ],
+   "completionTokens": [
+    400
+   ],
+   "reasoningChunks": [
+    0
+   ],
+   "finish": [
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 127.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 635.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 272.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 272.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    32
+   ],
+   "cachedTokens": [
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t0",
+   "rep": 1
+  },
+  {
+   "kind": "prose",
+   "concurrency": 1,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 1,
+   "errors": [],
+   "perStreamTps": [
+    65.74
+   ],
+   "meanPerStreamTps": 65.74,
+   "aggregateTps": 65.74,
+   "ttftMs": [
+    146.5
+   ],
+   "completionTokens": [
+    400
+   ],
+   "reasoningChunks": [
+    0
+   ],
+   "finish": [
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 127.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 635.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 272.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 272.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    32
+   ],
+   "cachedTokens": [
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t0",
+   "rep": 2
+  },
+  {
+   "kind": "prose",
+   "concurrency": 2,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 2,
+   "errors": [],
+   "perStreamTps": [
+    46.46,
+    46.35
+   ],
+   "meanPerStreamTps": 46.4,
+   "aggregateTps": 90.46,
+   "ttftMs": [
+    171.6,
+    384.7
+   ],
+   "completionTokens": [
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    0,
+    0
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 249.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 1245.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 554.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 554.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    39,
+    39
+   ],
+   "cachedTokens": [
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t0",
+   "rep": 0
+  },
+  {
+   "kind": "prose",
+   "concurrency": 2,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 2,
+   "errors": [],
+   "perStreamTps": [
+    46.45,
+    45.33
+   ],
+   "meanPerStreamTps": 45.89,
+   "aggregateTps": 90.65,
+   "ttftMs": [
+    361.1,
+    148.0
+   ],
+   "completionTokens": [
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    0,
+    0
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 256.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 1280.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 547.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 547.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    39,
+    39
+   ],
+   "cachedTokens": [
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t0",
+   "rep": 1
+  },
+  {
+   "kind": "prose",
+   "concurrency": 2,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 2,
+   "errors": [],
+   "perStreamTps": [
+    44.57,
+    43.84
+   ],
+   "meanPerStreamTps": 44.21,
+   "aggregateTps": 87.05,
+   "ttftMs": [
+    363.4,
+    148.4
+   ],
+   "completionTokens": [
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    0,
+    0
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 263.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 1315.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 536.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 536.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    39,
+    39
+   ],
+   "cachedTokens": [
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t0",
+   "rep": 2
+  },
+  {
+   "kind": "prose",
+   "concurrency": 3,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 3,
+   "errors": [],
+   "perStreamTps": [
+    40.95,
+    42.12,
+    43.0
+   ],
+   "meanPerStreamTps": 42.03,
+   "aggregateTps": 122.86,
+   "ttftMs": [
+    149.1,
+    320.1,
+    513.0
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    0,
+    0,
+    0
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 356.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 1780.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 854.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 854.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    39,
+    39,
+    39
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t0",
+   "rep": 0
+  },
+  {
+   "kind": "prose",
+   "concurrency": 3,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 3,
+   "errors": [],
+   "perStreamTps": [
+    41.57,
+    37.3,
+    39.31
+   ],
+   "meanPerStreamTps": 39.39,
+   "aggregateTps": 109.5,
+   "ttftMs": [
+    154.5,
+    388.1,
+    387.7
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    0,
+    0,
+    0
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 376.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 1880.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 825.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 825.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    39,
+    39,
+    39
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t0",
+   "rep": 1
+  },
+  {
+   "kind": "prose",
+   "concurrency": 3,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 3,
+   "errors": [],
+   "perStreamTps": [
+    39.08,
+    37.47,
+    38.5
+   ],
+   "meanPerStreamTps": 38.35,
+   "aggregateTps": 112.41,
+   "ttftMs": [
+    435.7,
+    150.1,
+    434.8
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    0,
+    0,
+    0
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 378.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 1890.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 822.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 822.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    39,
+    39,
+    39
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t0",
+   "rep": 2
+  },
+  {
+   "kind": "prose",
+   "concurrency": 4,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 4,
+   "errors": [],
+   "perStreamTps": [
+    33.31,
+    31.44,
+    30.79,
+    33.86
+   ],
+   "meanPerStreamTps": 32.35,
+   "aggregateTps": 123.16,
+   "ttftMs": [
+    343.7,
+    343.6,
+    342.9,
+    343.0
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 519.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 2595.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 1088.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 1088.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    39,
+    39,
+    39,
+    39
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t0",
+   "rep": 0
+  },
+  {
+   "kind": "prose",
+   "concurrency": 4,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 4,
+   "errors": [],
+   "perStreamTps": [
+    35.76,
+    36.92,
+    35.52,
+    37.25
+   ],
+   "meanPerStreamTps": 36.36,
+   "aggregateTps": 138.53,
+   "ttftMs": [
+    233.3,
+    233.2,
+    519.8,
+    519.5
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 477.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 2385.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 1123.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 1123.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    39,
+    39,
+    39,
+    39
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t0",
+   "rep": 1
+  },
+  {
+   "kind": "prose",
+   "concurrency": 4,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 4,
+   "errors": [],
+   "perStreamTps": [
+    33.1,
+    33.32,
+    34.29,
+    34.29
+   ],
+   "meanPerStreamTps": 33.75,
+   "aggregateTps": 130.1,
+   "ttftMs": [
+    155.0,
+    448.8,
+    448.3,
+    448.3
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 502.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 2510.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 1096.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 1096.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    39,
+    39,
+    39,
+    39
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t0",
+   "rep": 2
+  },
+  {
+   "kind": "code",
+   "concurrency": 1,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 1,
+   "errors": [],
+   "perStreamTps": [
+    110.89
+   ],
+   "meanPerStreamTps": 110.89,
+   "aggregateTps": 110.89,
+   "ttftMs": [
+    215.3
+   ],
+   "completionTokens": [
+    400
+   ],
+   "reasoningChunks": [
+    0
+   ],
+   "finish": [
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 77.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 385.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 325.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 325.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    59
+   ],
+   "cachedTokens": [
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "code-t0",
+   "rep": 0
+  },
+  {
+   "kind": "code",
+   "concurrency": 1,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 1,
+   "errors": [],
+   "perStreamTps": [
+    110.47
+   ],
+   "meanPerStreamTps": 110.47,
+   "aggregateTps": 110.47,
+   "ttftMs": [
+    215.0
+   ],
+   "completionTokens": [
+    400
+   ],
+   "reasoningChunks": [
+    0
+   ],
+   "finish": [
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 77.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 385.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 325.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 325.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    59
+   ],
+   "cachedTokens": [
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "code-t0",
+   "rep": 1
+  },
+  {
+   "kind": "code",
+   "concurrency": 1,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 1,
+   "errors": [],
+   "perStreamTps": [
+    109.38
+   ],
+   "meanPerStreamTps": 109.38,
+   "aggregateTps": 109.38,
+   "ttftMs": [
+    213.5
+   ],
+   "completionTokens": [
+    400
+   ],
+   "reasoningChunks": [
+    0
+   ],
+   "finish": [
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 77.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 385.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 325.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 325.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    59
+   ],
+   "cachedTokens": [
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "code-t0",
+   "rep": 2
+  },
+  {
+   "kind": "code",
+   "concurrency": 2,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 2,
+   "errors": [],
+   "perStreamTps": [
+    75.56,
+    77.7
+   ],
+   "meanPerStreamTps": 76.63,
+   "aggregateTps": 147.02,
+   "ttftMs": [
+    213.4,
+    505.6
+   ],
+   "completionTokens": [
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    0,
+    0
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 149.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 745.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 654.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 654.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    59,
+    59
+   ],
+   "cachedTokens": [
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "code-t0",
+   "rep": 0
+  },
+  {
+   "kind": "code",
+   "concurrency": 2,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 2,
+   "errors": [],
+   "perStreamTps": [
+    75.6,
+    77.8
+   ],
+   "meanPerStreamTps": 76.7,
+   "aggregateTps": 148.56,
+   "ttftMs": [
+    215.2,
+    457.6
+   ],
+   "completionTokens": [
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    0,
+    0
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 149.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 745.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 657.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 657.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    59,
+    59
+   ],
+   "cachedTokens": [
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "code-t0",
+   "rep": 1
+  },
+  {
+   "kind": "code",
+   "concurrency": 2,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 2,
+   "errors": [],
+   "perStreamTps": [
+    75.26,
+    77.46
+   ],
+   "meanPerStreamTps": 76.36,
+   "aggregateTps": 147.88,
+   "ttftMs": [
+    209.7,
+    454.4
+   ],
+   "completionTokens": [
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    0,
+    0
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 149.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 745.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 657.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 657.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    59,
+    59
+   ],
+   "cachedTokens": [
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "code-t0",
+   "rep": 2
+  },
+  {
+   "kind": "code",
+   "concurrency": 3,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 3,
+   "errors": [],
+   "perStreamTps": [
+    58.93,
+    62.12,
+    61.28
+   ],
+   "meanPerStreamTps": 60.78,
+   "aggregateTps": 172.44,
+   "ttftMs": [
+    215.6,
+    733.6,
+    475.7
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    0,
+    0,
+    0
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 222.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 1110.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 983.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 983.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    59,
+    59,
+    65
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "code-t0",
+   "rep": 0
+  },
+  {
+   "kind": "code",
+   "concurrency": 3,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 3,
+   "errors": [],
+   "perStreamTps": [
+    61.41,
+    62.95,
+    60.3
+   ],
+   "meanPerStreamTps": 61.55,
+   "aggregateTps": 174.84,
+   "ttftMs": [
+    508.0,
+    762.7,
+    255.0
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    0,
+    0,
+    0
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 222.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 1110.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 985.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 985.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    59,
+    59,
+    65
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "code-t0",
+   "rep": 1
+  },
+  {
+   "kind": "code",
+   "concurrency": 3,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 3,
+   "errors": [],
+   "perStreamTps": [
+    63.47,
+    62.92,
+    64.62
+   ],
+   "meanPerStreamTps": 63.67,
+   "aggregateTps": 177.27,
+   "ttftMs": [
+    206.3,
+    617.1,
+    616.9
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    0,
+    0,
+    0
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 217.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 1085.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 984.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 984.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    59,
+    59,
+    65
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "code-t0",
+   "rep": 2
+  },
+  {
+   "kind": "code",
+   "concurrency": 4,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 4,
+   "errors": [],
+   "perStreamTps": [
+    52.07,
+    52.36,
+    55.31,
+    51.21
+   ],
+   "meanPerStreamTps": 52.74,
+   "aggregateTps": 193.67,
+   "ttftMs": [
+    217.4,
+    666.9,
+    666.4,
+    666.0
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 295.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 1475.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 1310.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 1310.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    59,
+    59,
+    65,
+    59
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "code-t0",
+   "rep": 0
+  },
+  {
+   "kind": "code",
+   "concurrency": 4,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 4,
+   "errors": [],
+   "perStreamTps": [
+    49.1,
+    51.15,
+    53.08,
+    51.09
+   ],
+   "meanPerStreamTps": 51.11,
+   "aggregateTps": 189.56,
+   "ttftMs": [
+    208.1,
+    533.4,
+    533.2,
+    816.1
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 302.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 1510.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 1305.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 1305.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    59,
+    59,
+    65,
+    59
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "code-t0",
+   "rep": 1
+  },
+  {
+   "kind": "code",
+   "concurrency": 4,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 4,
+   "errors": [],
+   "perStreamTps": [
+    52.31,
+    52.94,
+    54.61,
+    49.54
+   ],
+   "meanPerStreamTps": 52.35,
+   "aggregateTps": 192.02,
+   "ttftMs": [
+    218.3,
+    815.0,
+    815.2,
+    474.4
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 297.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 1485.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 1306.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 1306.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    59,
+    59,
+    65,
+    59
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "code-t0",
+   "rep": 2
+  },
+  {
+   "kind": "structured",
+   "concurrency": 1,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 1,
+   "errors": [],
+   "perStreamTps": [
+    138.34
+   ],
+   "meanPerStreamTps": 138.34,
+   "aggregateTps": 138.34,
+   "ttftMs": [
+    112.2
+   ],
+   "completionTokens": [
+    400
+   ],
+   "reasoningChunks": [
+    0
+   ],
+   "finish": [
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 67.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 335.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 332.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 332.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    25
+   ],
+   "cachedTokens": [
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "structured-t0",
+   "rep": 0
+  },
+  {
+   "kind": "structured",
+   "concurrency": 1,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 1,
+   "errors": [],
+   "perStreamTps": [
+    137.21
+   ],
+   "meanPerStreamTps": 137.21,
+   "aggregateTps": 137.21,
+   "ttftMs": [
+    110.4
+   ],
+   "completionTokens": [
+    400
+   ],
+   "reasoningChunks": [
+    0
+   ],
+   "finish": [
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 67.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 335.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 332.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 332.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    25
+   ],
+   "cachedTokens": [
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "structured-t0",
+   "rep": 1
+  },
+  {
+   "kind": "structured",
+   "concurrency": 1,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 1,
+   "errors": [],
+   "perStreamTps": [
+    138.37
+   ],
+   "meanPerStreamTps": 138.37,
+   "aggregateTps": 138.37,
+   "ttftMs": [
+    110.6
+   ],
+   "completionTokens": [
+    400
+   ],
+   "reasoningChunks": [
+    0
+   ],
+   "finish": [
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 67.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 335.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 332.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 332.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    25
+   ],
+   "cachedTokens": [
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "structured-t0",
+   "rep": 2
+  },
+  {
+   "kind": "structured",
+   "concurrency": 2,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 2,
+   "errors": [],
+   "perStreamTps": [
+    102.41,
+    104.6
+   ],
+   "meanPerStreamTps": 103.51,
+   "aggregateTps": 198.94,
+   "ttftMs": [
+    134.7,
+    331.1
+   ],
+   "completionTokens": [
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    0,
+    0
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 134.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 670.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 664.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 664.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    32,
+    32
+   ],
+   "cachedTokens": [
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "structured-t0",
+   "rep": 0
+  },
+  {
+   "kind": "structured",
+   "concurrency": 2,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 2,
+   "errors": [],
+   "perStreamTps": [
+    103.79,
+    106.02
+   ],
+   "meanPerStreamTps": 104.9,
+   "aggregateTps": 204.25,
+   "ttftMs": [
+    131.1,
+    274.3
+   ],
+   "completionTokens": [
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    0,
+    0
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 134.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 670.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 664.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 664.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    32,
+    32
+   ],
+   "cachedTokens": [
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "structured-t0",
+   "rep": 1
+  },
+  {
+   "kind": "structured",
+   "concurrency": 2,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 2,
+   "errors": [],
+   "perStreamTps": [
+    103.64,
+    105.65
+   ],
+   "meanPerStreamTps": 104.65,
+   "aggregateTps": 201.34,
+   "ttftMs": [
+    132.4,
+    318.9
+   ],
+   "completionTokens": [
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    0,
+    0
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 134.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 670.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 664.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 664.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    32,
+    32
+   ],
+   "cachedTokens": [
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "structured-t0",
+   "rep": 2
+  },
+  {
+   "kind": "structured",
+   "concurrency": 3,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 3,
+   "errors": [],
+   "perStreamTps": [
+    94.77,
+    97.85,
+    97.84
+   ],
+   "meanPerStreamTps": 96.82,
+   "aggregateTps": 276.02,
+   "ttftMs": [
+    127.2,
+    385.3,
+    385.4
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    0,
+    0,
+    0
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 201.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 1005.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 996.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 996.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    32,
+    32,
+    32
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "structured-t0",
+   "rep": 0
+  },
+  {
+   "kind": "structured",
+   "concurrency": 3,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 3,
+   "errors": [],
+   "perStreamTps": [
+    94.76,
+    97.8,
+    97.8
+   ],
+   "meanPerStreamTps": 96.79,
+   "aggregateTps": 276.03,
+   "ttftMs": [
+    129.6,
+    385.5,
+    385.5
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    0,
+    0,
+    0
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 201.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 1005.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 996.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 996.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    32,
+    32,
+    32
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "structured-t0",
+   "rep": 1
+  },
+  {
+   "kind": "structured",
+   "concurrency": 3,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 3,
+   "errors": [],
+   "perStreamTps": [
+    91.81,
+    89.84,
+    88.47
+   ],
+   "meanPerStreamTps": 90.04,
+   "aggregateTps": 257.44,
+   "ttftMs": [
+    436.2,
+    276.5,
+    131.6
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    0,
+    0,
+    0
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 201.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 1005.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 996.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 996.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    32,
+    32,
+    32
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "structured-t0",
+   "rep": 2
+  },
+  {
+   "kind": "structured",
+   "concurrency": 4,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 4,
+   "errors": [],
+   "perStreamTps": [
+    82.89,
+    84.02,
+    86.75,
+    86.75
+   ],
+   "meanPerStreamTps": 85.1,
+   "aggregateTps": 321.55,
+   "ttftMs": [
+    133.3,
+    277.0,
+    496.1,
+    496.2
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 268.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 1340.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 1328.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 1328.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    32,
+    32,
+    32,
+    32
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "structured-t0",
+   "rep": 0
+  },
+  {
+   "kind": "structured",
+   "concurrency": 4,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 4,
+   "errors": [],
+   "perStreamTps": [
+    83.01,
+    84.17,
+    86.92,
+    86.92
+   ],
+   "meanPerStreamTps": 85.25,
+   "aggregateTps": 322.09,
+   "ttftMs": [
+    127.2,
+    272.0,
+    491.0,
+    490.5
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 268.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 1340.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 1328.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 1328.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    32,
+    32,
+    32,
+    32
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "structured-t0",
+   "rep": 1
+  },
+  {
+   "kind": "structured",
+   "concurrency": 4,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 4,
+   "errors": [],
+   "perStreamTps": [
+    88.88,
+    91.7,
+    91.7,
+    91.7
+   ],
+   "meanPerStreamTps": 91.0,
+   "aggregateTps": 345.31,
+   "ttftMs": [
+    134.3,
+    403.5,
+    404.0,
+    403.5
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 268.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 1340.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 1328.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 1328.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    32,
+    32,
+    32,
+    32
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "structured-t0",
+   "rep": 2
+  },
+  {
+   "kind": "prose",
+   "concurrency": 1,
+   "temperature": 0.7,
+   "thinking": true,
+   "maxTokens": 400,
+   "streamsOk": 1,
+   "errors": [],
+   "perStreamTps": [
+    55.89
+   ],
+   "meanPerStreamTps": 55.89,
+   "aggregateTps": 55.89,
+   "ttftMs": [
+    222.9
+   ],
+   "completionTokens": [
+    400
+   ],
+   "reasoningChunks": [
+    151
+   ],
+   "finish": [
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 150.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 750.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 250.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 250.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    58
+   ],
+   "cachedTokens": [
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t07-think",
+   "rep": 0
+  },
+  {
+   "kind": "prose",
+   "concurrency": 1,
+   "temperature": 0.7,
+   "thinking": true,
+   "maxTokens": 400,
+   "streamsOk": 1,
+   "errors": [],
+   "perStreamTps": [
+    56.24
+   ],
+   "meanPerStreamTps": 56.24,
+   "aggregateTps": 56.24,
+   "ttftMs": [
+    219.7
+   ],
+   "completionTokens": [
+    400
+   ],
+   "reasoningChunks": [
+    146
+   ],
+   "finish": [
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 148.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 740.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 251.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 251.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    58
+   ],
+   "cachedTokens": [
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t07-think",
+   "rep": 1
+  },
+  {
+   "kind": "prose",
+   "concurrency": 1,
+   "temperature": 0.7,
+   "thinking": true,
+   "maxTokens": 400,
+   "streamsOk": 1,
+   "errors": [],
+   "perStreamTps": [
+    51.11
+   ],
+   "meanPerStreamTps": 51.11,
+   "aggregateTps": 51.11,
+   "ttftMs": [
+    221.3
+   ],
+   "completionTokens": [
+    400
+   ],
+   "reasoningChunks": [
+    164
+   ],
+   "finish": [
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 164.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 820.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 236.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 236.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    58
+   ],
+   "cachedTokens": [
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t07-think",
+   "rep": 2
+  },
+  {
+   "kind": "prose",
+   "concurrency": 2,
+   "temperature": 0.7,
+   "thinking": true,
+   "maxTokens": 400,
+   "streamsOk": 2,
+   "errors": [],
+   "perStreamTps": [
+    36.57,
+    36.42
+   ],
+   "meanPerStreamTps": 36.5,
+   "aggregateTps": 71.08,
+   "ttftMs": [
+    265.0,
+    535.6
+   ],
+   "completionTokens": [
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    156,
+    161
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 315.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 1575.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 487.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 487.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    65,
+    65
+   ],
+   "cachedTokens": [
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t07-think",
+   "rep": 0
+  },
+  {
+   "kind": "prose",
+   "concurrency": 2,
+   "temperature": 0.7,
+   "thinking": true,
+   "maxTokens": 400,
+   "streamsOk": 2,
+   "errors": [],
+   "perStreamTps": [
+    36.94,
+    37.47
+   ],
+   "meanPerStreamTps": 37.21,
+   "aggregateTps": 72.04,
+   "ttftMs": [
+    545.0,
+    267.3
+   ],
+   "completionTokens": [
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    158,
+    146
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 307.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 1535.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 493.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 493.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    65,
+    65
+   ],
+   "cachedTokens": [
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t07-think",
+   "rep": 1
+  },
+  {
+   "kind": "prose",
+   "concurrency": 2,
+   "temperature": 0.7,
+   "thinking": true,
+   "maxTokens": 400,
+   "streamsOk": 2,
+   "errors": [],
+   "perStreamTps": [
+    39.22,
+    42.62
+   ],
+   "meanPerStreamTps": 40.92,
+   "aggregateTps": 76.42,
+   "ttftMs": [
+    534.9,
+    265.6
+   ],
+   "completionTokens": [
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    150,
+    80
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 281.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 1405.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 517.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 517.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    65,
+    65
+   ],
+   "cachedTokens": [
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t07-think",
+   "rep": 2
+  },
+  {
+   "kind": "prose",
+   "concurrency": 3,
+   "temperature": 0.7,
+   "thinking": true,
+   "maxTokens": 400,
+   "streamsOk": 3,
+   "errors": [],
+   "perStreamTps": [
+    31.44,
+    36.24,
+    30.22
+   ],
+   "meanPerStreamTps": 32.63,
+   "aggregateTps": 88.55,
+   "ttftMs": [
+    263.3,
+    579.4,
+    579.2
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    148,
+    34,
+    165
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 440.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 2200.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 761.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 761.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    65,
+    65,
+    65
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t07-think",
+   "rep": 0
+  },
+  {
+   "kind": "prose",
+   "concurrency": 3,
+   "temperature": 0.7,
+   "thinking": true,
+   "maxTokens": 400,
+   "streamsOk": 3,
+   "errors": [],
+   "perStreamTps": [
+    32.87,
+    32.28,
+    33.64
+   ],
+   "meanPerStreamTps": 32.93,
+   "aggregateTps": 94.05,
+   "ttftMs": [
+    268.9,
+    635.7,
+    635.6
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    101,
+    149,
+    88
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 425.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 2125.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 775.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 775.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    65,
+    65,
+    65
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t07-think",
+   "rep": 1
+  },
+  {
+   "kind": "prose",
+   "concurrency": 3,
+   "temperature": 0.7,
+   "thinking": true,
+   "maxTokens": 400,
+   "streamsOk": 3,
+   "errors": [],
+   "perStreamTps": [
+    31.11,
+    30.25,
+    32.04
+   ],
+   "meanPerStreamTps": 31.13,
+   "aggregateTps": 90.75,
+   "ttftMs": [
+    635.9,
+    271.9,
+    635.4
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    153,
+    154,
+    146
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 453.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 2265.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 748.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 748.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    65,
+    65,
+    65
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t07-think",
+   "rep": 2
+  },
+  {
+   "kind": "prose",
+   "concurrency": 4,
+   "temperature": 0.7,
+   "thinking": true,
+   "maxTokens": 400,
+   "streamsOk": 4,
+   "errors": [],
+   "perStreamTps": [
+    28.31,
+    27.46,
+    27.14,
+    28.62
+   ],
+   "meanPerStreamTps": 27.88,
+   "aggregateTps": 105.56,
+   "ttftMs": [
+    273.8,
+    691.8,
+    691.4,
+    691.5
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    145,
+    152,
+    156,
+    144
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 598.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 2990.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 1002.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 1002.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    65,
+    65,
+    65,
+    65
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t07-think",
+   "rep": 0
+  },
+  {
+   "kind": "prose",
+   "concurrency": 4,
+   "temperature": 0.7,
+   "thinking": true,
+   "maxTokens": 400,
+   "streamsOk": 4,
+   "errors": [],
+   "perStreamTps": [
+    27.87,
+    25.33,
+    26.02,
+    26.27
+   ],
+   "meanPerStreamTps": 26.37,
+   "aggregateTps": 101.31,
+   "ttftMs": [
+    407.0,
+    406.9,
+    406.0,
+    406.0
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    149,
+    167,
+    159,
+    159
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 634.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 3170.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 968.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 968.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    65,
+    65,
+    65,
+    65
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t07-think",
+   "rep": 1
+  },
+  {
+   "kind": "prose",
+   "concurrency": 4,
+   "temperature": 0.7,
+   "thinking": true,
+   "maxTokens": 400,
+   "streamsOk": 4,
+   "errors": [],
+   "perStreamTps": [
+    26.89,
+    27.07,
+    30.23,
+    30.48
+   ],
+   "meanPerStreamTps": 28.67,
+   "aggregateTps": 105.35,
+   "ttftMs": [
+    270.0,
+    680.7,
+    679.8,
+    679.8
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    151,
+    155,
+    70,
+    38
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 573.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 2865.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 1030.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 1030.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    65,
+    65,
+    65,
+    65
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t07-think",
+   "rep": 2
+  },
+  {
+   "kind": "prose",
+   "concurrency": 1,
+   "temperature": 1.0,
+   "thinking": true,
+   "maxTokens": 400,
+   "streamsOk": 1,
+   "errors": [],
+   "perStreamTps": [
+    50.78
+   ],
+   "meanPerStreamTps": 50.78,
+   "aggregateTps": 50.78,
+   "ttftMs": [
+    213.9
+   ],
+   "completionTokens": [
+    400
+   ],
+   "reasoningChunks": [
+    163
+   ],
+   "finish": [
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 163.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 815.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 236.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 236.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    58
+   ],
+   "cachedTokens": [
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t1-think",
+   "rep": 0
+  },
+  {
+   "kind": "prose",
+   "concurrency": 1,
+   "temperature": 1.0,
+   "thinking": true,
+   "maxTokens": 400,
+   "streamsOk": 1,
+   "errors": [],
+   "perStreamTps": [
+    54.84
+   ],
+   "meanPerStreamTps": 54.84,
+   "aggregateTps": 54.84,
+   "ttftMs": [
+    213.3
+   ],
+   "completionTokens": [
+    400
+   ],
+   "reasoningChunks": [
+    153
+   ],
+   "finish": [
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 153.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 765.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 246.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 246.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    58
+   ],
+   "cachedTokens": [
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t1-think",
+   "rep": 1
+  },
+  {
+   "kind": "prose",
+   "concurrency": 1,
+   "temperature": 1.0,
+   "thinking": true,
+   "maxTokens": 400,
+   "streamsOk": 1,
+   "errors": [],
+   "perStreamTps": [
+    55.18
+   ],
+   "meanPerStreamTps": 55.18,
+   "aggregateTps": 55.18,
+   "ttftMs": [
+    213.6
+   ],
+   "completionTokens": [
+    400
+   ],
+   "reasoningChunks": [
+    155
+   ],
+   "finish": [
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 154.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 770.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 247.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 247.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    58
+   ],
+   "cachedTokens": [
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t1-think",
+   "rep": 2
+  },
+  {
+   "kind": "prose",
+   "concurrency": 2,
+   "temperature": 1.0,
+   "thinking": true,
+   "maxTokens": 400,
+   "streamsOk": 2,
+   "errors": [],
+   "perStreamTps": [
+    36.5,
+    38.24
+   ],
+   "meanPerStreamTps": 37.37,
+   "aggregateTps": 73.0,
+   "ttftMs": [
+    322.1,
+    322.0
+   ],
+   "completionTokens": [
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    159,
+    149
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 308.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 1540.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 494.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 494.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    65,
+    65
+   ],
+   "cachedTokens": [
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t1-think",
+   "rep": 0
+  },
+  {
+   "kind": "prose",
+   "concurrency": 2,
+   "temperature": 1.0,
+   "thinking": true,
+   "maxTokens": 400,
+   "streamsOk": 2,
+   "errors": [],
+   "perStreamTps": [
+    38.54,
+    42.86
+   ],
+   "meanPerStreamTps": 40.7,
+   "aggregateTps": 77.08,
+   "ttftMs": [
+    321.6,
+    320.9
+   ],
+   "completionTokens": [
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    161,
+    139
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 298.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 1490.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 500.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 500.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    65,
+    65
+   ],
+   "cachedTokens": [
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t1-think",
+   "rep": 1
+  },
+  {
+   "kind": "prose",
+   "concurrency": 2,
+   "temperature": 1.0,
+   "thinking": true,
+   "maxTokens": 400,
+   "streamsOk": 2,
+   "errors": [],
+   "perStreamTps": [
+    37.83,
+    36.16
+   ],
+   "meanPerStreamTps": 36.99,
+   "aggregateTps": 72.32,
+   "ttftMs": [
+    528.5,
+    258.7
+   ],
+   "completionTokens": [
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    154,
+    158
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 311.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 1555.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 487.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 487.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    65,
+    65
+   ],
+   "cachedTokens": [
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t1-think",
+   "rep": 2
+  },
+  {
+   "kind": "prose",
+   "concurrency": 3,
+   "temperature": 1.0,
+   "thinking": true,
+   "maxTokens": 400,
+   "streamsOk": 3,
+   "errors": [],
+   "perStreamTps": [
+    32.24,
+    31.28,
+    29.62
+   ],
+   "meanPerStreamTps": 31.05,
+   "aggregateTps": 86.53,
+   "ttftMs": [
+    258.8,
+    623.4,
+    623.1
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    145,
+    114,
+    154
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 463.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 2315.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 738.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 738.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    65,
+    65,
+    65
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t1-think",
+   "rep": 0
+  },
+  {
+   "kind": "prose",
+   "concurrency": 3,
+   "temperature": 1.0,
+   "thinking": true,
+   "maxTokens": 400,
+   "streamsOk": 3,
+   "errors": [],
+   "perStreamTps": [
+    30.29,
+    31.93,
+    31.55
+   ],
+   "meanPerStreamTps": 31.26,
+   "aggregateTps": 90.87,
+   "ttftMs": [
+    260.6,
+    620.6,
+    620.5
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    157,
+    148,
+    151
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 456.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 2280.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 746.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 746.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    65,
+    65,
+    65
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t1-think",
+   "rep": 1
+  },
+  {
+   "kind": "prose",
+   "concurrency": 3,
+   "temperature": 1.0,
+   "thinking": true,
+   "maxTokens": 400,
+   "streamsOk": 3,
+   "errors": [],
+   "perStreamTps": [
+    29.48,
+    29.44,
+    31.53
+   ],
+   "meanPerStreamTps": 30.15,
+   "aggregateTps": 84.86,
+   "ttftMs": [
+    260.0,
+    810.7,
+    529.9
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    159,
+    168,
+    149
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 474.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 2370.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 727.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 727.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    65,
+    65,
+    65
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t1-think",
+   "rep": 2
+  },
+  {
+   "kind": "prose",
+   "concurrency": 4,
+   "temperature": 1.0,
+   "thinking": true,
+   "maxTokens": 400,
+   "streamsOk": 4,
+   "errors": [],
+   "perStreamTps": [
+    27.14,
+    25.44,
+    25.79,
+    30.16
+   ],
+   "meanPerStreamTps": 27.13,
+   "aggregateTps": 99.13,
+   "ttftMs": [
+    678.9,
+    678.8,
+    260.4,
+    677.8
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    153,
+    169,
+    157,
+    134
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 616.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 3080.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 984.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 984.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    65,
+    65,
+    65,
+    65
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t1-think",
+   "rep": 0
+  },
+  {
+   "kind": "prose",
+   "concurrency": 4,
+   "temperature": 1.0,
+   "thinking": true,
+   "maxTokens": 400,
+   "streamsOk": 4,
+   "errors": [],
+   "perStreamTps": [
+    25.79,
+    27.98,
+    27.09,
+    28.62
+   ],
+   "meanPerStreamTps": 27.37,
+   "aggregateTps": 100.42,
+   "ttftMs": [
+    683.3,
+    259.2,
+    682.3,
+    681.8
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    169,
+    144,
+    154,
+    144
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 610.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 3050.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 991.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 991.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    65,
+    65,
+    65,
+    65
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t1-think",
+   "rep": 1
+  },
+  {
+   "kind": "prose",
+   "concurrency": 4,
+   "temperature": 1.0,
+   "thinking": true,
+   "maxTokens": 400,
+   "streamsOk": 4,
+   "errors": [],
+   "perStreamTps": [
+    27.95,
+    28.4,
+    28.52,
+    28.19
+   ],
+   "meanPerStreamTps": 28.27,
+   "aggregateTps": 108.63,
+   "ttftMs": [
+    679.1,
+    262.4,
+    678.5,
+    678.3
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    152,
+    145,
+    147,
+    149
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 592.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 2960.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 1011.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 1011.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 0,
+   "promptTokens": [
+    65,
+    65,
+    65,
+    65
+   ],
+   "cachedTokens": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "fillTtftMs": [],
+   "suite": "prose-t1-think",
+   "rep": 2
+  }
+ ],
+ "prefill": [
+  {
+   "target": 4096,
+   "samples": [
+    {
+     "promptTokens": 4120,
+     "cachedTokens": 0,
+     "ttftMs": 1668.5,
+     "tps": 2820.8,
+     "rawTps": 2469.3,
+     "lowConfidence": false
+    },
+    {
+     "promptTokens": 4120,
+     "cachedTokens": 0,
+     "ttftMs": 1660.5,
+     "tps": 2836.3,
+     "rawTps": 2481.2,
+     "lowConfidence": false
+    },
+    {
+     "promptTokens": 4119,
+     "cachedTokens": 0,
+     "ttftMs": 1665.2,
+     "tps": 2826.5,
+     "rawTps": 2473.6,
+     "lowConfidence": false
+    }
+   ],
+   "median": {
+    "promptTokens": 4119,
+    "cachedTokens": 0,
+    "ttftMs": 1665.2,
+    "tps": 2826.5,
+    "rawTps": 2473.6,
+    "lowConfidence": false
+   }
+  },
+  {
+   "target": 8192,
+   "samples": [
+    {
+     "promptTokens": 8211,
+     "cachedTokens": 0,
+     "ttftMs": 3118.5,
+     "tps": 2821.0,
+     "rawTps": 2633.0,
+     "lowConfidence": false
+    },
+    {
+     "promptTokens": 8213,
+     "cachedTokens": 0,
+     "ttftMs": 3127.8,
+     "tps": 2812.7,
+     "rawTps": 2625.8,
+     "lowConfidence": false
+    },
+    {
+     "promptTokens": 8211,
+     "cachedTokens": 0,
+     "ttftMs": 3131.9,
+     "tps": 2808.2,
+     "rawTps": 2621.8,
+     "lowConfidence": false
+    }
+   ],
+   "median": {
+    "promptTokens": 8213,
+    "cachedTokens": 0,
+    "ttftMs": 3127.8,
+    "tps": 2812.7,
+    "rawTps": 2625.8,
+    "lowConfidence": false
+   }
+  },
+  {
+   "target": 16384,
+   "samples": [
+    {
+     "promptTokens": 16403,
+     "cachedTokens": 0,
+     "ttftMs": 6189.9,
+     "tps": 2742.1,
+     "rawTps": 2650.0,
+     "lowConfidence": false
+    },
+    {
+     "promptTokens": 16406,
+     "cachedTokens": 0,
+     "ttftMs": 6762.9,
+     "tps": 2502.8,
+     "rawTps": 2425.9,
+     "lowConfidence": false
+    },
+    {
+     "promptTokens": 16405,
+     "cachedTokens": 0,
+     "ttftMs": 6504.0,
+     "tps": 2605.6,
+     "rawTps": 2522.3,
+     "lowConfidence": false
+    }
+   ],
+   "median": {
+    "promptTokens": 16405,
+    "cachedTokens": 0,
+    "ttftMs": 6504.0,
+    "tps": 2605.6,
+    "rawTps": 2522.3,
+    "lowConfidence": false
+   }
+  },
+  {
+   "target": 32768,
+   "samples": [
+    {
+     "promptTokens": 32789,
+     "cachedTokens": 0,
+     "ttftMs": 12501.2,
+     "tps": 2667.2,
+     "rawTps": 2622.9,
+     "lowConfidence": false
+    },
+    {
+     "promptTokens": 32786,
+     "cachedTokens": 0,
+     "ttftMs": 12487.1,
+     "tps": 2670.0,
+     "rawTps": 2625.6,
+     "lowConfidence": false
+    },
+    {
+     "promptTokens": 32788,
+     "cachedTokens": 0,
+     "ttftMs": 12538.9,
+     "tps": 2659.0,
+     "rawTps": 2614.9,
+     "lowConfidence": false
+    }
+   ],
+   "median": {
+    "promptTokens": 32789,
+    "cachedTokens": 0,
+    "ttftMs": 12501.2,
+    "tps": 2667.2,
+    "rawTps": 2622.9,
+    "lowConfidence": false
+   }
+  },
+  {
+   "target": 65536,
+   "samples": [
+    {
+     "promptTokens": 65555,
+     "cachedTokens": 0,
+     "ttftMs": 25027.3,
+     "tps": 2641.3,
+     "rawTps": 2619.3,
+     "lowConfidence": false
+    },
+    {
+     "promptTokens": 65558,
+     "cachedTokens": 0,
+     "ttftMs": 24850.0,
+     "tps": 2660.4,
+     "rawTps": 2638.2,
+     "lowConfidence": false
+    }
+   ],
+   "median": {
+    "promptTokens": 65555,
+    "cachedTokens": 0,
+    "ttftMs": 25027.3,
+    "tps": 2641.3,
+    "rawTps": 2619.3,
+    "lowConfidence": false
+   }
+  },
+  {
+   "target": 131072,
+   "samples": [
+    {
+     "promptTokens": 131091,
+     "cachedTokens": 0,
+     "ttftMs": 49670.5,
+     "tps": 2650.3,
+     "rawTps": 2639.2,
+     "lowConfidence": false
+    },
+    {
+     "promptTokens": 131094,
+     "cachedTokens": 0,
+     "ttftMs": 49500.1,
+     "tps": 2659.5,
+     "rawTps": 2648.4,
+     "lowConfidence": false
+    }
+   ],
+   "median": {
+    "promptTokens": 131091,
+    "cachedTokens": 0,
+    "ttftMs": 49670.5,
+    "tps": 2650.3,
+    "rawTps": 2639.2,
+    "lowConfidence": false
+   }
+  },
+  {
+   "target": 262144,
+   "samples": [
+    {
+     "promptTokens": 262167,
+     "cachedTokens": 0,
+     "ttftMs": 100352.6,
+     "tps": 2617.9,
+     "rawTps": 2612.5,
+     "lowConfidence": false
+    }
+   ],
+   "median": {
+    "promptTokens": 262167,
+    "cachedTokens": 0,
+    "ttftMs": 100352.6,
+    "tps": 2617.9,
+    "rawTps": 2612.5,
+    "lowConfidence": false
+   }
+  }
+ ],
+ "deepDecode": [
+  {
+   "kind": "prose",
+   "concurrency": 1,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 1,
+   "errors": [],
+   "perStreamTps": [
+    63.9
+   ],
+   "meanPerStreamTps": 63.9,
+   "aggregateTps": 63.9,
+   "ttftMs": [
+    433.2
+   ],
+   "completionTokens": [
+    400
+   ],
+   "reasoningChunks": [
+    0
+   ],
+   "finish": [
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 126.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 630.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 274.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 274.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 32768,
+   "promptTokens": [
+    32774
+   ],
+   "cachedTokens": [
+    32640
+   ],
+   "fillTtftMs": [
+    12356.8
+   ]
+  },
+  {
+   "kind": "prose",
+   "concurrency": 4,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 4,
+   "errors": [],
+   "perStreamTps": [
+    34.84,
+    31.86,
+    34.84,
+    34.84
+   ],
+   "meanPerStreamTps": 34.1,
+   "aggregateTps": 127.43,
+   "ttftMs": [
+    1186.1,
+    440.1,
+    1183.9,
+    1182.1
+   ],
+   "completionTokens": [
+    400,
+    400,
+    400,
+    400
+   ],
+   "reasoningChunks": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "finish": [
+    "length",
+    "length",
+    "length",
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 484.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 2420.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 1117.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 1117.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 32768,
+   "promptTokens": [
+    32776,
+    32776,
+    32776,
+    32776
+   ],
+   "cachedTokens": [
+    32640,
+    32640,
+    32640,
+    32640
+   ],
+   "fillTtftMs": [
+    12446.9,
+    12412.9,
+    12610.7,
+    12366.9
+   ]
+  },
+  {
+   "kind": "prose",
+   "concurrency": 1,
+   "temperature": 0.0,
+   "thinking": false,
+   "maxTokens": 400,
+   "streamsOk": 1,
+   "errors": [],
+   "perStreamTps": [
+    61.94
+   ],
+   "meanPerStreamTps": 61.94,
+   "aggregateTps": 61.94,
+   "ttftMs": [
+    625.6
+   ],
+   "completionTokens": [
+    400
+   ],
+   "reasoningChunks": [
+    0
+   ],
+   "finish": [
+    "length"
+   ],
+   "specDelta": {
+    "vllm:spec_decode_num_drafts_total": 130.0,
+    "vllm:spec_decode_num_drafts_created": 0.0,
+    "vllm:spec_decode_num_draft_tokens_total": 650.0,
+    "vllm:spec_decode_num_draft_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_total": 270.0,
+    "vllm:spec_decode_num_accepted_tokens_created": 0.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_total": 270.0,
+    "vllm:spec_decode_num_accepted_tokens_per_pos_created": 0.0
+   },
+   "context": 131072,
+   "promptTokens": [
+    131080
+   ],
+   "cachedTokens": [
+    130944
+   ],
+   "fillTtftMs": [
+    49562.2
+   ]
+  }
+ ],
+ "interference": {
+  "idleShortTtftMs": 200.3,
+  "runs": [
+   {
+    "longPromptTokens": 93354,
+    "longTtftMs": 35336.2,
+    "shortTtftMs": 34334.9,
+    "shortDecodeTps": 78.42,
+    "errors": []
+   },
+   {
+    "longPromptTokens": 93353,
+    "longTtftMs": 35350.0,
+    "shortTtftMs": 34348.1,
+    "shortDecodeTps": 79.2,
+    "errors": []
+   }
+  ]
+ },
+ "prefillOverheadMs": 207.9,
+ "ended": "2026-10-31T04:09:39Z"
+}
