@@ -9,7 +9,9 @@
 Re-implements the measurement protocol of MiaAI-Lab/sparkDash
 (b96244a2589a2130e80ff1b2b399252934a01154: server/collectors/DecodeBench.js,
 PrefillBench.js, LlmStreaming.js, contextFill.js, src/shared/llmPrompts.js) so
-our numbers sit on the same basis as the MiaAI README tables.
+our numbers follow the method of the MiaAI README tables. MiaAI's repository does
+not record which prompts its run sent, so a comparison with those tables is a
+port, not the same protocol.
 
 Decode wave: N simultaneous streams, the lab prompt for the type
 (prose = hash-map explanation, code = one distinct Python task per stream),

@@ -1,6 +1,6 @@
 # Credits
 
-This stack is mostly other people's work, adapted and combined. Every project below is credited where its code or
+DGX sPLIce is mostly other people's work, adapted and combined. Every project below is credited where its code or
 ideas are used; licence texts are in [LICENSES/](LICENSES/) and [NOTICE](NOTICE). If you build on this repository,
 please credit them too. If we have missed or misdescribed anyone's contribution, please open an issue and we will
 correct it.

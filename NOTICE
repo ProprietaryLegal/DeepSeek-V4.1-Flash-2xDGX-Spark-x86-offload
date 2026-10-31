@@ -1,4 +1,4 @@
-PLI Labs — DeepSeek-V4.1-Flash on two DGX Sparks with an x86 offload host
+PLI Labs — DGX sPLIce: DeepSeek-V4.1-Flash on 2x DGX Spark + 2x RTX 3090 x86 offload
 Copyright 2026 Proprietary Legal Intelligence LLC
 
 Original PLI Labs code is licensed under Apache-2.0 (LICENSE; also LICENSES/Apache-2.0.txt).

@@ -2,6 +2,45 @@
 
 Dates are UTC. "Production" is the commit serving on our two Sparks at the time.
 
+## 2026-10-31, second update: the name DGX sPLIce, and new measurements
+
+- Name: the build is now called **DGX sPLIce** (the PLI is Proprietary Legal Intelligence): DeepSeek V4.1 Flash served
+  across two DGX Sparks, spliced with an x86 box that drafts tokens for them. The repository name, the model id, image
+  digests and file paths are unchanged; `.publication/SOURCE.json` gains a `name` field.
+- MEASURED, production `ebc29ed8`, 06:22-07:00 UTC: ports of the other two-Spark builds' own benchmarks (bertholomus's
+  `kit_bench`, tonyd2wild's `v41bench`, Elevatormusic's `v41_suite` and `v41_bench`, HeNryous's `fair_bench` and
+  three-code needle, jayleaton's tool chains, ToolCall-15), every row labelled same protocol, port or different
+  benchmark. Wins: the 315,207-token needle 3/3 with its first token in 124.2 s (HeNryous's v4i image: 152 s for 314K);
+  Elevatormusic's ORCHID needle 1.44-1.48x faster than TensorFold; `v41bench` prefill at its 128K target +10.8 %;
+  `v41_bench` code at 4 streams 157.2 against TensorFold's 140.3. Losses, listed as plainly: `kit_bench` set b at one
+  stream (89.9 / 45.8 / 135.3 code / prose / structured, behind every build that publishes it), `v41bench` aggregate at
+  1-4 streams, `v41_suite` single-request decode, prose on `v41_bench`, `fair_bench` beside background prefills (our
+  largest gap), decode while answering a long needle, and tool checks (`v41_suite` tools 10/12, jayleaton's chains 10/12
+  and 9/12 against 11/12). Tables in the README and `docs/comparison.md`.
+- MEASURED, 11:01-11:20 UTC: llama-benchy 0.4.0 from PyPI, unmodified: the standard table at depths 0-65,536 (the
+  131,072 row: rerun pending, a benchmark-harness timeout, not a server fault), concurrency at 1 / 2 / 4 streams, and
+  PILCOTHINK's grid from NVIDIA forum topic 386574 in api latency mode: prefill +23 to +47 % and decode +12 to +30 %
+  against PILCOTHINK's published numbers (same tool; we used a fresh `cache_salt` on every request where PILCOTHINK ran
+  with the prefix cache on, and DSpark k = 5 against k = 3).
+- README hero: our own absolute numbers (prefill, structured and code at 4 streams, tool-call fidelity) plus the
+  llama-benchy result against PILCOTHINK's grid. The MiaAI figures moved to the head-to-head table, labelled port, with
+  the losses: code -6.4 % at one stream, prose -18.2 / -15.5 % and thinking-mode prose -12.5 / -12.7 % at one / four
+  streams.
+- MEASURED: the persistent prefix tier across production restarts, on a synthetic test prompt. Stored at 06:21 UTC,
+  two engine restarts, sent again at 10:56 UTC: 4,992 of 5,050 prompt tokens (98.9 %) came from the tier, 2.0 s against
+  10.2 s uncached (whole-request wall time).
+- MEASURED: a kernel census of a cold 31,633-token prefill on production, profiler overhead 0.08 %: MoE experts 47.5 % of
+  the time to first token, norms and elementwise 17.0 %, attention 13.1 %, dense GEMM 13.0 %, all-reduce 6.4 %; every
+  line, both ranks and every chunk in `docs/measurements.md`. A 150K census was attempted, but its traces missed 4 of its
+  19 chunks, so it is not published.
+- Known issue documented: `tool_choice` "required" or a named tool can return HTTP 500 when vLLM has pinned guidance as
+  its structured-outputs backend. Workaround: `--structured-outputs-config.backend xgrammar`. Status: fix built and
+  tested offline; production install pending.
+- Correction: the previous README called the MiaAI sparkDash comparison 'same protocol'. It is a port, because MiaAI's
+  prompts are not published, and our Sparks were clocked 100 MHz higher.
+- Not in this commit: the ported benchmark scripts and raw result files of the 2026-10-31 runs, and the prefix tier's
+  code.
+
 ## 2026-10-31: flagship repository
 
 - MEASURED: MiaAI's sparkDash protocol on production `ebc29ed8` (2,300 MHz cap, drafter GPUs at 400 W, 4 sequences, 3

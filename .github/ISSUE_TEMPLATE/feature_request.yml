@@ -1,5 +1,5 @@
 name: Feature request or idea
-description: A change to the stack, the bench tool or the docs.
+description: A change to DGX sPLIce, the bench tool or the docs.
 labels: [enhancement]
 body:
   - type: textarea

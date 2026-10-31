@@ -1,5 +1,5 @@
 name: Performance report
-description: A measurement with tools/bench.py, on this stack or another recipe.
+description: A measurement with tools/bench.py, on DGX sPLIce or another recipe.
 labels: [performance]
 body:
   - type: markdown

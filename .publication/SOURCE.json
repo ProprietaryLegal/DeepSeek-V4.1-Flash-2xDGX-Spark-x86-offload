@@ -70,6 +70,7 @@
   "offload/launch/window.sh",
   "offload/promote/k1/README.md"
  ],
+ "name": "DGX sPLIce",
  "prefix_tier": "drop",
  "private_hex_runs_zeroed": {},
  "production_files_taken": 508,

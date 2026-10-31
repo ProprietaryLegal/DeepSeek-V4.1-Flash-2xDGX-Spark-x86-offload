@@ -1,6 +1,6 @@
 # Install: the full build, step by step
 
-This is how the production stack is put together, in the order it has to happen. Machine names are roles:
+This is how DGX sPLIce is put together in production, in the order it has to happen. Machine names are roles:
 `sparkhead` (rank 0, runs the API), `sparkworker` (rank 1) and `x86host` (Engram server and drafter worker). The
 addresses are the ones in [dsv41.env](../dsv41.env); replace them with your own. Every component README under
 `offload/` has more detail and its own rollback; this page links to them where they matter.
@@ -18,7 +18,7 @@ Allow a day for the first build. Most of it is downloads (about 400 GB per Spark
 | drafter GPUs | 2 x RTX 3090 24 GB with an NVLink bridge (one card also works, slower); driver with CUDA 12.6 or newer |
 | software on the x86 host | CUDA toolkit 12.6, `libibverbs` and its headers, `uv` (or any Python 3.12 venv tool), systemd user units |
 
-Without the x86 host, the stack runs as a plain two-Spark serve: skip steps 4-6 and see the last section.
+Without the x86 host, DGX sPLIce runs as a plain two-Spark serve: skip steps 4-6 and see the last section.
 
 ## 1. Cabling and addresses
 

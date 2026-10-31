@@ -1,8 +1,10 @@
-# DeepSeek-V4.1-Flash on two DGX Sparks with an x86 offload host
+# DGX sPLIce: DeepSeek-V4.1-Flash on 2x DGX Spark + 2x RTX 3090 x86 offload
 
 [![proprietarylegal.ai](https://img.shields.io/badge/proprietarylegal.ai-website-0B3D91)](https://proprietarylegal.ai) [![PLI Labs](https://img.shields.io/badge/PLI%20Labs-research-1F6FEB)](https://proprietarylegal.ai/labs.html) [![Hugging Face](https://img.shields.io/badge/Hugging%20Face-card-FFD21E)](https://huggingface.co/ProprietaryLegal/DeepSeek-V4.1-Flash-2xDGX-Spark-x86-offload) [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE) [![Hardware: 2x DGX Spark + x86](https://img.shields.io/badge/hardware-2x%20DGX%20Spark%20%2B%20x86%20offload-76B900)](#requirements) [![Raw data: runs/](https://img.shields.io/badge/raw%20data-runs%2F-555555)](runs/)
 
 Built by **Nick Mermiges, Esq.**, founder of [PLI Labs](https://proprietarylegal.ai/labs.html) · [proprietarylegal.ai](https://proprietarylegal.ai)
+
+DGX sPLIce (the PLI is Proprietary Legal Intelligence) is our name for this build: DeepSeek V4.1 Flash served across two DGX Sparks, spliced with an x86 box that drafts tokens for them.
 
 DeepSeek-V4.1-Flash-1017 (EXL3, 2.75 bpw) served by vLLM across two NVIDIA DGX Spark / GB10 nodes in tensor parallel. A third,
 ordinary x86 machine does two jobs for them: it holds the Engram tables in RAM and serves them over RDMA, and it runs the
@@ -12,39 +14,58 @@ again.
 
 <table>
 <tr>
-<td align="center"><h2>2,606&#8209;2,827</h2>tok/s prefill<br><sub>4K to 256K-token prompts; MiaAI 2,065&#8209;2,155</sub></td>
+<td align="center"><h2>2,606&#8209;2,827</h2>tok/s prefill<br><sub>4K to 256K-token prompts</sub></td>
 <td align="center"><h2>322</h2>tok/s structured output<br><sub>4 streams; 138 at one</sub></td>
-<td align="center"><h2>192</h2>tok/s code<br><sub>4 streams; MiaAI 166.1, same protocol</sub></td>
+<td align="center"><h2>192</h2>tok/s code<br><sub>4 streams</sub></td>
+<td align="center"><h2>+23&#8209;47&nbsp;%</h2>prefill on llama-benchy<br><sub>against PILCOTHINK's published grid, same tool; decode +12&#8209;30&nbsp;%</sub></td>
 <td align="center"><h2>95.9&nbsp;%</h2>top-1 agreement with the original<br><sub>real tool-call turns, KLD 0.018</sub></td>
 </tr>
 </table>
 
-<sub>sparkDash protocol re-implemented in <a href="tools/sparkbench.py">tools/sparkbench.py</a>, production commit <code>ebc29ed8</code>, 2026-10-31, both Sparks at a 2,300 MHz clock cap, 3 repeats, median. Raw file: <a href="runs/2026-10-31-sparkdash-protocol-ebc29ed8.json">runs/</a>. Quality: sudoingX's <code>p4_kld.py</code> panel, agentic domain.</sub>
+<sub>sparkDash protocol re-implemented in <a href="tools/sparkbench.py">tools/sparkbench.py</a>, production commit <code>ebc29ed8</code>, 2026-10-31, both Sparks at a 2,300 MHz clock cap, 3 repeats, median. Raw file: <a href="runs/2026-10-31-sparkdash-protocol-ebc29ed8.json">runs/</a>. llama-benchy: 0.4.0 from PyPI, unmodified, api latency mode, 2026-10-31; PILCOTHINK's grid from NVIDIA forum topic 386574, post 5. Quality: sudoingX's <code>p4_kld.py</code> panel, agentic domain.</sub>
 
-- **95.9 % top-1 agreement with the original model on real tool-call turns** (KLD 0.018; weights by HeNryous). bertholomus publishes 79.4 % on its own tool-call set; MiaAI publishes none.
+- **95.9 % top-1 agreement with the original model on real tool-call turns** (KLD 0.018; weights by HeNryous).
   <sub>p4_kld, sudoingX's panel, agentic domain, 2026-10-21 · [quality](#quality)</sub>
-- **Prefill 2,606-2,827 tok/s from 4K to 256K tokens**: faster than MiaAI and bertholomus at every prompt size they publish. A 256K prompt's first token in 100 s (MiaAI 127 s).
+- **Prefill 2,606-2,827 tok/s from 4K to 256K tokens**; a 256K prompt's first token in 100 s.
   <sub>sparkDash protocol, 2,300 MHz, commit `ebc29ed8`, 2026-10-31 · [prefill ladder](docs/measurements.md#prefill-ladder)</sub>
 - **322 tok/s of structured output at 4 streams**, 138 tok/s at one.
   <sub>sparkDash "structured" prompt, T=0, 400 tokens, 3 reps · [decode cells](docs/measurements.md#decode-cells-sparkdash)</sub>
-- **192 tok/s of code at 4 streams** (MiaAI 166.1 on the same protocol).
-  <sub>sparkDash code prompts, T=0, thinking off, 400 tokens, 3 reps · [decode cells](docs/measurements.md#decode-cells-sparkdash)</sub>
+- **192 tok/s of code at 4 streams** on sparkDash's code prompts. On Elevatormusic's own `v41_bench`, same protocol,
+  code at 4 streams is 157.2 tok/s against TensorFold's 140.3, level with HeNryous's vLLM builds.
+  <sub>sparkDash code prompts, T=0, thinking off, 400 tokens, 3 reps · [decode cells](docs/measurements.md#decode-cells-sparkdash) · [their benchmarks](#the-other-builds-own-benchmarks-run-on-dgx-splice)</sub>
+- **llama-benchy 0.4.0 on PILCOTHINK's published grid**: prefill +23 to +47 % and decode +12 to +30 % (pp2048
+  1,883-2,518 tok/s against 1,420-1,749; tg 49.6-56.5 against 42.0-44.2). Same tool and grid, in api latency mode, in
+  which 0.4.0 and PILCOTHINK's 0.4.1.dev1 measure alike. What still differs: every request here carried a fresh
+  `cache_salt`, so the prefix cache never helped us, while PILCOTHINK ran with it on; DSpark k = 5 here, k = 3 there.
+  <sub>production `ebc29ed8`, 2026-10-31, 11:01-11:20 UTC · [llama-benchy](#llama-benchy-040)</sub>
+- **On the other builds' own benchmarks, same protocol**: a 315,207-token needle prompt answered 3 of 3 with its first
+  token in 124.2 s (HeNryous: 152 s for 314K, on its older v4i image); Elevatormusic's ORCHID needle 1.44-1.48x faster
+  than TensorFold; tonyd2wild's v41bench prefill at its 128K target +10.8 % over TensorFold TP2.
+  <sub>production `ebc29ed8`, 2026-10-31 · [their benchmarks](#the-other-builds-own-benchmarks-run-on-dgx-splice)</sub>
 - **Long prompts survive a restart**: a 150K-token prompt comes back from the NVMe tier in 2.58 s instead of 58.6 s of
-  prefill; in production, the first request after a restart read 95.1 % of its 107,821-token prompt from the tier.
-  The tier's code follows in the next push ([why](docs/publication.md#prefix-tier-code)); the measurements are here now.
-  <sub>2026-10-30 test store, 6 trials; 2026-10-31 production counts · [prefix tier](docs/measurements.md#persistent-prefix-tier-2026-10-30-and-2026-10-31-production-ebc29ed8)</sub>
+  prefill; in production, the first request after a restart read 95.1 % of its 107,821-token prompt from the tier, and a
+  5,050-token synthetic prompt stored before two engine restarts came back after them with 4,992 tokens (98.9 %) from the
+  tier, in 2.0 s against 10.2 s uncached. The tier's code follows in the next push ([why](docs/publication.md#prefix-tier-code)); the measurements are
+  here now.
+  <sub>2026-10-30 test store, 6 trials; 2026-10-31 production counts and synthetic reload · [prefix tier](docs/measurements.md#persistent-prefix-tier-2026-10-30-and-2026-10-31-production-ebc29ed8)</sub>
 
-We also lose on several rows, and the [head-to-head](#head-to-head) lists them: prose and thinking-mode decode, decode
-after a 128K prompt, a short request behind a long prompt, streams beyond 4, and contexts beyond 327,680.
+We also lose on several rows, and the [head-to-head](#head-to-head) and
+[their benchmarks](#the-other-builds-own-benchmarks-run-on-dgx-splice) list them: single-stream decode on most of the
+other builds' own benchmarks (kit_bench, v41bench, v41_suite), prose and thinking-mode decode (also against MiaAI on
+our sparkDash port), decode after a 128K
+prompt, a short request behind a long prompt or beside background prefills (our largest gap), streams beyond 4, and
+contexts beyond 327,680. Forced tool calls have a [known issue](#known-issues).
 
 **Image:** `ghcr.io/henryous/deepseek-v41-1017-dgx-spark:v5` (linux/arm64,
 `sha256:8fc2c99a3562e99d81d2a05b8345d12726def0a027410d14d0eb0763de8309e4`), unmodified; `start.sh` stages our overlays
 from this checkout and mounts them read-only. **Install:** [docs/install.md](docs/install.md), step by step. **Numbers:**
 [docs/measurements.md](docs/measurements.md). **Raw data:** [runs/](runs/).
 
-This repository is the serving stack as it runs in production, with every number we measured on it, the tools that
-measured them, the raw result files and the code for every piece except the prefix tier, which follows in the next
-push. Issues, measurements on your own hardware and pull requests are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md).
+This repository is DGX sPLIce as it runs in production: every number we measured on it, the tools that measured them,
+the raw result files and the code for every piece. Two things are not in this commit yet: the prefix tier's code, which
+follows in the next push, and the ported suites and raw files behind the 2026-10-31 runs of the other builds' own
+benchmarks (llama-benchy is public and was run unmodified). Issues, measurements on your own hardware and pull requests
+are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 **Hugging Face:** [card](https://huggingface.co/ProprietaryLegal/DeepSeek-V4.1-Flash-2xDGX-Spark-x86-offload) ·
 [served weights](https://huggingface.co/ProprietaryLegal/DeepSeek-V4.1-Flash-1017-EXL3-2.75bpw-LegalWeighted-DGX-Spark) ·
@@ -87,46 +108,63 @@ show, and we claim nothing beyond those tests.
 
 ## Head-to-head
 
-Three builds of DeepSeek-V4.1-Flash-1017 on two DGX Sparks, every metric any of them publishes. **Same protocol** means
-our number was measured with the protocol that produced theirs: MiaAI's numbers come from its
-[sparkDash](https://github.com/MiaAI-Lab/sparkDash) dashboard, ours from [tools/sparkbench.py](tools/sparkbench.py), a
-re-implementation of sparkDash `b96244a2`. bertholomus uses its own prompt sets, so its decode rows are **not
-comparable** with either.
+Three builds of DeepSeek-V4.1-Flash-1017 on two DGX Sparks, every metric any of them publishes. MiaAI's numbers come
+from its [sparkDash](https://github.com/MiaAI-Lab/sparkDash) dashboard, ours from [tools/sparkbench.py](tools/sparkbench.py),
+a re-implementation of sparkDash `b96244a2` with sparkDash's own lab prompts. MiaAI's repository does not record which
+prompts its run sent, so these rows are labelled **port**: the same method, possibly not the same prompts. Our Sparks
+also ran at a 2,300 MHz clock cap, MiaAI's at 2,200 MHz. No port row is counted as a true win. bertholomus
+uses its own prompt sets, so its decode rows are **not comparable** with either here; its own benchmark, run on DGX
+sPLIce with the same protocol, is in the [next section](#the-other-builds-own-benchmarks-run-on-dgx-splice).
 
 Our conditions for every row: production `ebc29ed8`, 2026-10-31, both Sparks at a 2,300 MHz clock cap, drafter GPUs at a
 400 W cap (325 W in production; they drew 22-112 W in the samples taken), `max-num-seqs` 4, 3 repeats, median.
 
-| Metric | **This repository** | [MiaAI-Lab](https://github.com/MiaAI-Lab/DeepSeek-v4.1-Flash-1017-2x-DGX-Sparks) | [bertholomus](https://huggingface.co/bertholomus/DeepSeek-V4.1-Flash-TensorFold-TP2-2xGB10) v0.7.3 | Basis |
+| Metric | **DGX sPLIce** | [MiaAI-Lab](https://github.com/MiaAI-Lab/DeepSeek-v4.1-Flash-1017-2x-DGX-Sparks) | [bertholomus](https://huggingface.co/bertholomus/DeepSeek-V4.1-Flash-TensorFold-TP2-2xGB10) v0.7.3 | Basis |
 |-|-|-|-|-|
 | engine, weights | vLLM 0.31.1.dev0 + overlays, EXL3 2.75 bpw | TensorFold, EAQ 2.9 bpw | TensorFold, EXL3 2.52 bpw (~185 GB) | |
 | extra hardware | x86 host, 2 x RTX 3090 | none | none | |
 | GPU clock cap | 2,300 MHz | 2,200 MHz | not stated | |
-| prefill 4K / 8K / 16K | **2,827 / 2,813 / 2,606** | 2,106 / 2,152 / 2,155 | - / 2,439 / - | same protocol with MiaAI |
-| prefill 32K / 64K / 128K / 256K | **2,667 / 2,641 / 2,650 / 2,618** | 2,154 / 2,136 / 2,077 / 2,065 | 2,568 / 2,550 / 2,523 / - | same protocol with MiaAI |
-| 256K prompt, first token | **100.4 s** | 127.1 s | - | same protocol |
-| code T=0, 1 / 2 / 3 / 4 streams, total | 110.5 / 147.9 / **174.8 / 192.0** | **118.1 / 149.4** / 171.0 / 166.1 | 1 stream 112.7 (set b, 384 tokens) | same protocol with MiaAI |
-| prose T=0, 1 / 2 / 3 / 4 streams, total | 66.0 / 90.5 / 112.4 / 130.1 | **80.7 / 110.6 / 133.6 / 154.0** | 1 stream 67.5 (set b) | same protocol with MiaAI |
-| prose T=0.7 thinking on, 1-4 streams | 55.9 / 72.0 / 90.8 / 105.3 | **63.9 / 93.3 / 107.8 / 120.6** | not published | same protocol |
+| prefill 4K / 8K / 16K | **2,827 / 2,813 / 2,606** | 2,106 / 2,152 / 2,155 | - / 2,439 / - | port (sparkDash) |
+| prefill 32K / 64K / 128K / 256K | **2,667 / 2,641 / 2,650 / 2,618** | 2,154 / 2,136 / 2,077 / 2,065 | 2,568 / 2,550 / 2,523 / - | port (sparkDash) |
+| 256K prompt, first token | **100.4 s** | 127.1 s | - | port (sparkDash) |
+| code T=0, 1 / 2 / 3 / 4 streams, total | 110.5 / 147.9 / **174.8 / 192.0** | **118.1 / 149.4** / 171.0 / 166.1 | 1 stream 112.7 (set b, 384 tokens) | port (sparkDash) |
+| prose T=0, 1 / 2 / 3 / 4 streams, total | 66.0 / 90.5 / 112.4 / 130.1 | **80.7 / 110.6 / 133.6 / 154.0** | 1 stream 67.5 (set b) | port (sparkDash) |
+| prose T=0.7 thinking on, 1-4 streams | 55.9 / 72.0 / 90.8 / 105.3 | **63.9 / 93.3 / 107.8 / 120.6** | not published | port (sparkDash) |
 | structured T=0, 1 / 4 streams | 138.3 / **322.1** | not published | 1 stream **159.5** (set b) | not comparable |
 | 4 streams, mixed set, total | prose 130.1, code 192.0 | see above | 134.0 (set b) | not comparable |
 | 8 streams | not supported (4 max) | not published | **168.3** sustained | |
-| TTFT, 1 stream: prose / code / thinking | 146 / 215 / 221 ms | **133 / 213 / 214 ms** | - | same protocol |
+| TTFT, 1 stream: prose / code / thinking | 146 / 215 / 221 ms | **133 / 213 / 214 ms** | - | port (sparkDash) |
 | decode after a 128K prompt, 1 stream | 61.9 (sparkDash prose) | not published | **99.2** (median of 3 own prompts) | not comparable |
 | short chat behind a cold 93K prompt, first token | 34.3 s | **3.84 s** (different test: 8 s into a 70K prompt) | 38.6 s | same design with bertholomus |
 | longest context per request | 327,680 | 524,288 | **1,048,576** | |
 | tool-call turns, top-1 vs original | **95.9 %** | not published | 79.4 % | different test sets |
 
-**Where we lose.** Prose decode at T=0 is 18 % behind MiaAI at one stream (66.0 against 80.7) and 16 % at four;
-thinking-mode prose is 12-23 % behind; code is 6 % behind at one stream and 1 % behind at two. Decode after a 128K prompt is
+Against MiaAI on the sparkDash port, with the delta, (ours - MiaAI) / MiaAI (label: **port**; 2,300 against 2,200 MHz):
+
+| sparkDash row | DGX sPLIce | MiaAI 1017 | Delta |
+|-|-|-|-|
+| code T=0, 1 / 2 / 3 / 4 streams | 110.5 / 147.9 / 174.8 / 192.0 | 118.1 / 149.4 / 171.0 / 166.1 | -6.4 / -1.0 / +2.2 / +15.6 % |
+| prose T=0, 1 / 4 streams | 66.0 / 130.1 | 80.7 / 154.0 | -18.2 / -15.5 % |
+| prose T=0.7 thinking on, 1 / 4 streams | 55.9 / 105.3 | 63.9 / 120.6 | -12.5 / -12.7 % |
+| prefill 4K to 256K | 2,606-2,827 | 2,065-2,155 | +21 to +34 % |
+| 256K prompt, first token | 100.4 s | 127.1 s | 21 % less time |
+
+**Where we lose.** On the sparkDash port, prose decode at T=0 is 18.2 % behind MiaAI at one stream (66.0 against
+80.7) and 15.5 % at four; thinking-mode prose is 12.5 % behind at one stream and 12.7 % at four (22.8 % at two); code
+is 6.4 % behind at one stream and 1.0 % at two. Decode after a 128K prompt is
 far below bertholomus's figure (different prompts, but the gap is large). On prose the drafter has 2.1-2.3 of its 5
 drafted tokens accepted per round, against 4.2-4.5 on code and 4.96 on structured output
 ([decode cells](docs/measurements.md#decode-cells-sparkdash)). A short request sent behind a long cold prompt
 gets its first token only when the long prefill is almost done (34 s against 35 s for the long prompt); MiaAI's engine
 lets such a request in early. We serve at
-most 4 streams and 327,680 tokens; bertholomus serves 8 streams and 1M tokens. We have not run 1M context.
+most 4 streams and 327,680 tokens; bertholomus serves 8 streams and 1M tokens. We have not run 1M context. Our
+sparkDash single-stream figures (110.5 code, 66.0 prose) are not a ranking: on bertholomus's kit_bench set b, the
+benchmark most builds publish, we measure 89.9 code and 45.8 prose and trail every build that publishes it
+([next section](#the-other-builds-own-benchmarks-run-on-dgx-splice)).
 
-**Where we win.** Prefill at every size from 4K to 256K, by 21-34 % over MiaAI and 4-15 % over bertholomus at the sizes
-each publishes (even our uncorrected prompt / TTFT rates are higher). Code at 3 and 4 streams (+2 % and +16 % over MiaAI).
+**Where we are ahead** (port or different prompts, so not counted as true wins). Prefill at every size from 4K to
+256K, by 21-34 % over MiaAI (port) and 4-15 % over bertholomus (different prompts) at the sizes each publishes (even our uncorrected prompt / TTFT rates are higher). Code at 3 and 4
+streams (+2 % and +16 % over MiaAI, port).
 Tool-call fidelity against bertholomus, the other build here that publishes it, with the caveat that the test sets
 differ; sudoingX's 2.8 bpw pack is slightly closer than ours on our own panel. Structured output reaches 322 tok/s at 4
 streams, a row neither other build publishes.
@@ -136,31 +174,175 @@ Every cell, every repeat, TTFT, acceptance per draft round, deep-context decode 
 [runs/2026-10-31-sparkdash-protocol-ebc29ed8.json](runs/2026-10-31-sparkdash-protocol-ebc29ed8.json). Sources and
 conditions for every other build's number: [docs/comparison.md](docs/comparison.md).
 
+## The other builds' own benchmarks, run on DGX sPLIce
+
+On 2026-10-31 we ported the benchmarks most of the other two-Spark builds publish (kit_bench, v41bench, v41_suite,
+v41_bench, fair_bench, their needle tests and tool checks) and ran them on production `ebc29ed8` (06:22-07:00 UTC, 439
+requests). Conditions: both Sparks at a 2,300 MHz clock cap, drafter GPUs at a 400 W cap (325 W
+in production), `max-num-seqs` 4, context limit 327,680, DSpark sampled drafting with a fixed window of 5. Every request
+carried a fresh `cache_salt` and a unique first line, so no prefix cache helped. Their numbers are quoted as each build
+published them, from its README, results file or forum post at the commit named in
+[docs/comparison.md](docs/comparison.md#the-other-builds-own-benchmarks-2026-10-31); we computed only the delta, (ours -
+theirs) / theirs. For time rows a negative delta means we are faster.
+
+- **same protocol**: our port of their script, with their prompts and parameters; the only deviations are the unique
+  first line and the fresh cache salt.
+- **port**: a re-implementation of a protocol whose prompts are not published, or a port that deviates in a way that
+  matters (named in the row).
+- **different benchmark**: another benchmark of the same quantity; an indication only.
+- **settings differ**: the same tool and grid, with server settings that differ (named in the row).
+
+**Where we win** (same protocol, margin outside noise):
+
+| Benchmark | DGX sPLIce | Theirs | Delta | Label |
+|-|-|-|-|-|
+| HeNryous 3-code needle (10 / 50 / 90 % depth), 315,207-token prompt | 3/3, first token 124.2 s (2,538 tok/s) | HeNryous image v4i: 314K, 3/3, 152 s (2,066 tok/s) | 18.3 % less time, +22.8 % rate | same protocol; their older image |
+| Elevatormusic `v41_suite` ORCHID needle, request time at 64K / 200K | 24.3 / 76.3 s | TensorFold 35.9 / 109.8 s | 1.48x / 1.44x faster | same protocol |
+| tonyd2wild `v41bench` prefill, 128K target (186,792 tokens) | 2,265.7 tok/s | tonyd2wild TensorFold TP2 2,044.4; Blackwellboy 1,891.2 | +10.8 % / +19.8 % | same protocol; at 64K +3.0 %, at 32K a tie |
+| Elevatormusic `v41_bench`, code, 4 streams, aggregate (per request) | 157.2 (42.0) tok/s | TensorFold 140.3 (36.8) | +12.0 % (+14.1 %) | same protocol; level with HeNryous 154.0 and v5 155.9 |
+| Elevatormusic `v41_suite` cold prefill, 32K | 2,246.9 tok/s | 2,100 | +7.0 % | same protocol |
+
+Level with the others: Elevatormusic's structured-output group 6/6 (strict `json_schema` 8/8 with thinking off and on),
+its reasoning and no-leak checks, and `v41bench` per-stream speed at 4 streams (41.38 against tonyd2wild's 41.39).
+
+**Where we lose** (stated as plainly as the wins):
+
+| Benchmark | DGX sPLIce | Theirs | Delta | Label |
+|-|-|-|-|-|
+| HeNryous `fair_bench`: foreground decode beside 1 / 2 background prefills | 10.1 / 5.5 tok/s | HeNryous ~29 / ~23; 58.5 / 59.1 on v22 | -65 / -76 %; -83 / -91 % against v22 | port: shorter background requests, and only the first of 3 repeats overlapped them. Our largest gap |
+| `fair_bench` foreground alone, 600 tokens | 45.2 tok/s | 55.9 (v20), 57.2 (v22) | -19.1 / -20.9 % | port |
+| bertholomus `kit_bench` set b, 1 stream: code / prose / structured | 89.9 / 45.8 / 135.3 | bertholomus v0.7.3 112.7 / 67.5 / 159.5; sudoingX v2.0 103.9 / 57.9 / 144.0; Blackwellboy 103.79 / 58.84 / 144.55; HeNryous v20 99.5 / 55.3 / 138.9; Elevatormusic 98.6 / 56.8 / 139.7 | code -8.8 to -20.2 %, prose -17.3 to -32.2 %, structured -2.6 to -15.2 % | same protocol |
+| `kit_bench` set b aggregate: 2 streams / 4 streams / 4 streams sustained 90 s | 67.6 / 100.4 / 115.4 | 77.7-95.3 / 116.7-134.0 / 120.0-151.8 | -13.0 to -29.1 % / -13.9 to -25.1 % / -3.8 to -24.0 % | same protocol, our 2 repeats against their median of 9 |
+| tonyd2wild `v41bench` aggregate, 1 / 2 / 3 / 4 streams | 62.9 / 83.4 / 107.7 / 129.0 | 73.1 / 106.0 / 123.7 / 135.8 | -13.9 / -21.4 / -12.9 / -5.0 %; first token 17-47 % later | same protocol |
+| `v41bench` prefill, 8K target (11,611 tokens) | 1,973.3 tok/s | 2,180.2 | -9.5 % | same protocol |
+| Elevatormusic `v41_suite`, 1 request: prose / code / prose thinking / code thinking | 45.9 / 87.1 / 46.9 / 64.7 | TensorFold 56.8 / 92.2 / 54.2 / 71.6 | -19.3 / -5.5 / -13.5 / -9.6 % | same protocol |
+| Elevatormusic `v41_bench`, prose, 2 / 3 / 4 streams; code, 1 stream | 54.9 / 68.9 / 73.9; 73.4 | TensorFold 73.5 / 82.3 / 94.4; 94.1 | -25.3 / -16.3 / -21.7 %; -22.0 % | same protocol; its aggregate includes the first-token wait, and one of our two 1-stream code repeats waited 1.9 s |
+| decode while answering a needle, after 131K / 315K tokens | 44.2 / 38.2 tok/s | after 128-131K: bertholomus 99.2, sudoingX 81.3, HeNryous v20 73.7, jayleaton 64.9 | -32 to -55 % | different benchmark |
+| tool calls: Elevatormusic `v41_suite` tools group | 10/12 | 12/12 | -2 | same protocol; the two forced-choice cases, see [known issues](#known-issues) |
+| tool calls: jayleaton `chains.py`, thinking off / effort high | 10/12 / 9/12 | 11/12 (their earlier run) | -1 / -2 points | same protocol; retry-after-error scores 0 in both modes |
+| longest needle | 315,207 tokens, 3/3 (our 327,680 limit) | bertholomus 1,039,836, 3/3; MiaAI 1017 479,012, 3/3 | | a configuration limit |
+
+Draft acceptance explains part of the single-stream gap: on kit_bench's prose prompt the drafter has 1.19 of its 5
+tokens accepted per round, against 2.14 on sparkDash's prose prompt (kit_bench code 3.31, structured 5.0). No other
+build publishes its kit_bench acceptance, so we cannot yet say how much of the gap is the drafter and how much the base
+decode. HeNryous's v21 and v22 `fair_bench` numbers come from scheduler patches (0031, priority-aware prefill
+throttling, plus 0073 and 0074) that we do not run; with chunked prefill at 8,192 tokens, every foreground decode step
+here waits on a background chunk.
+
+One row is withheld, in both directions: our `v41_suite` cold 8K prefill read 1,522.6 tok/s (HeNryous v12: 2,470), but
+that request waited about 2 s before its first token that the same pass's 8,167-token needle (2,586.9 tok/s) did not.
+It is not counted until the delay is explained. Every table, source and commit, plus the different-benchmark prefill
+rows: [docs/comparison.md](docs/comparison.md#the-other-builds-own-benchmarks-2026-10-31).
+
+## llama-benchy 0.4.0
+
+[llama-benchy](https://github.com/eugr/llama-benchy) 0.4.0 from PyPI, pinned and run unmodified against production
+`ebc29ed8` on 2026-10-31, 11:01-11:20 UTC (154 requests; same clock, power and request rules as the section above, at
+most 4 in flight). Values are mean ± std over 3 runs as llama-benchy reports them. Its pp rate counts the depth tokens
+too: (depth + 2,048) / estimated prompt time.
+
+Standard table (pp2048 / tg32, one stream, `--latency-mode generation --no-cache`):
+
+| Depth | pp2048 t/s | time to first response | tg32 t/s |
+|-|-|-|-|
+| 0 | 2,161.11 ± 15.93 | 1.12 s | 47.36 ± 7.47 |
+| 4,096 | 2,625.76 ± 12.20 | 2.52 s | 50.25 ± 9.53 |
+| 8,192 | 2,488.00 ± 2.68 | 4.29 s | 49.53 ± 4.27 |
+| 16,384 | 2,512.40 ± 25.28 | 7.51 s | 52.55 ± 8.35 |
+| 32,768 | 2,542.76 ± 9.23 | 13.87 s | 59.92 ± 4.21 |
+| 65,536 | 2,495.40 ± 47.12 | 27.27 s | 55.72 ± 7.05 |
+| 131,072 | rerun pending: a benchmark-harness timeout, not a server fault | | |
+
+Concurrency (pp2048 / tg128 at 1, 2 and 4 streams, `--latency-mode generation --no-cache`). tg is the aggregate; the
+per-request tg and the aggregate peak are in parentheses:
+
+| Depth | 1 stream: pp / tg | 2 streams: pp / tg | 4 streams: pp / tg |
+|-|-|-|-|
+| 0 | 2,146.99 / 52.39 | 2,042.72 / 67.71 (36.37; peak 88.33) | 2,283.97 / 90.47 (26.62; peak 124.67) |
+| 4,096 | 2,615.40 / 59.10 | 2,422.16 / 45.90 (32.56; peak 88.00) | 2,438.02 / 41.29 (18.93; peak 127.33) |
+| 8,192 | 2,474.86 / 54.61 | 2,391.81 / 32.65 (26.54; peak 84.67) | 2,487.24 / 30.07 (16.82; peak 132.00) |
+
+At depth 4K and 8K the aggregate tg falls as streams are added while the peak rises. Our reading, inferred and not
+measured: the 2- and 4-stream requests' prefills overlap the other streams' decode, so the aggregate under-reports
+steady decode. A run with staggered starts would test this.
+
+PILCOTHINK's grid ([NVIDIA forum topic 386574](https://forums.developer.nvidia.com/t/386574), post 5; the build
+[gpdev-Pilcothink/DGX_Spark_vllm_Dockerfile](https://github.com/gpdev-Pilcothink/DGX_Spark_vllm_Dockerfile): vLLM 0.32.1,
+LibertAI EXL3 2.9 bpw, 8 sequences), with the tool's default latency mode (`api`), in which 0.4.0 and PILCOTHINK's 0.4.1.dev1
+measure alike:
+
+| Test | DGX sPLIce, mean ± std | PILCOTHINK, post 5 | Delta |
+|-|-|-|-|
+| pp2048 (tg128 run) | 1,883.21 ± 8.10 | 1,420.45 ± 73.47 | +32.6 % |
+| pp2048 (tg1024 run) | 1,889.73 ± 8.64 | 1,533.06 ± 46.79 | +23.3 % |
+| tg128 / peak | 53.09 ± 1.29 / 60.33 | 42.03 ± 4.35 / 50.67 | +26.3 / +19.1 % |
+| tg1024 / peak | 50.48 ± 3.18 / 84.00 | 43.63 ± 3.67 / 61.67 | +15.7 / +36.2 % |
+| pp2048 @ d1024 / tg128 @ d1024 | 2,166.52 ± 20.49 / 56.50 ± 2.86 | 1,748.85 ± 30.40 / 43.47 ± 2.10 | +23.9 / +30.0 % |
+| pp2048 @ d4096 / tg128 @ d4096 | 2,518.02 ± 2.47 / 49.59 ± 2.35 | 1,718.95 ± 55.21 / 44.23 ± 1.59 | +46.5 / +12.1 % |
+| tg1024 @ d1024 / @ d4096 | 55.21 ± 3.77 / 54.32 ± 3.48 | no row | |
+| pp2048 @ d400000 | not run (our limit is 327,680) | 1,771.88 ± 51.33 | |
+
+Label: **same tool, settings differ**. The tool, grid and latency mode are PILCOTHINK's. What differs: PILCOTHINK ran
+with the prefix cache on and DSpark k = 3; every one of our requests carried a fresh `cache_salt`, so the prefix cache
+never helped us, and we run k = 5. Neither side sends a thinking flag. Against this grid we are 23-47 % ahead on
+prefill and 12-30 % on decode (mean tg); this is the llama-benchy cell at the top of this page.
+
 ## Other 2x DGX Spark builds
 
 Popular public builds of DeepSeek-V4-Flash and V4.1-Flash on DGX Sparks, with GitHub stars as of 2026-10-31. Their
-numbers are their own, under their own conditions. **Same-protocol run pending** for every row below: we are porting
-each build's benchmark into `tools/sparkbench.py` and will publish the results in [runs/](runs/).
+numbers are their own, under their own conditions. The last column says which of their benchmarks we have run on DGX
+sPLIce ([results](#the-other-builds-own-benchmarks-run-on-dgx-splice)); the rest are still to be ported.
 
-| Repository | Stars | Model | Engine, weights | What it publishes |
-|-|-|-|-|-|
-| [MiaAI-Lab/DeepSeek-v4-Flash-DSpark-2x-DGX-Spark](https://github.com/MiaAI-Lab/DeepSeek-v4-Flash-DSpark-2x-DGX-Spark) | 1,505 | V4-Flash | vLLM, DSpark | earlier model |
-| [tonyd2wild/DeepSeek-v4-Flash-Vision-Exp-DSpark-1M-NVFP4-KV-2x-DGX-Spark](https://github.com/tonyd2wild/DeepSeek-v4-Flash-Vision-Exp-DSpark-1M-NVFP4-KV-2x-DGX-Spark) | 494 | V4-Flash | vLLM, DSpark, NVFP4 KV, 1M | earlier model |
-| [MiaAI-Lab/DeepSeek-v4.1-Flash-1017-2x-DGX-Sparks](https://github.com/MiaAI-Lab/DeepSeek-v4.1-Flash-1017-2x-DGX-Sparks) | 372 | V4.1-Flash-1017 | TensorFold, EAQ 2.9 bpw | compared above, same protocol |
-| [MiaAI-Lab/DeepSeek-v4.1-Flash-DGX-Sparks](https://github.com/MiaAI-Lab/DeepSeek-v4.1-Flash-DGX-Sparks) | 281 | V4.1-Flash | 3-4 Sparks | |
-| [MiaAI-Lab/DeepSeek-v4.1-Flash-EXL3-2x-DGX-Sparks](https://github.com/MiaAI-Lab/DeepSeek-v4.1-Flash-EXL3-2x-DGX-Sparks) | 280 | V4.1-Flash | vLLM, EXL3 2.9 bpw | 1 stream at T=0: 40.2 tok/s |
-| [tonyd2wild/DeepSeek-V4.1-Flash-TP2-and-TP4-DGX-Sparks](https://github.com/tonyd2wild/DeepSeek-V4.1-Flash-TP2-and-TP4-DGX-Sparks) | 154 | V4.1-Flash-1017 | TensorFold, EXL3 2.9 bpw | 73.1 tok/s at 1 user, 135.8 at 4 (8 categories), 1M |
-| [0xSero/DeepSeek-V4.1-Flash-Two-Sparks](https://github.com/0xSero/DeepSeek-V4.1-Flash-Two-Sparks) | 95 | V4.1-Flash | vLLM, EXL3 2.77 bpw | prefill 8K 2,050, 32K 2,061; code 1 stream ~39-41; 262,144 context |
-| [bertholomus/deepseek-v4.1-tensorfold-tp2-2xgb10](https://github.com/bertholomus/deepseek-v4.1-tensorfold-tp2-2xgb10) | 58 | V4.1-Flash-1017 | TensorFold, EXL3 2.52 bpw | compared above |
-| [sudoingX/dgx-spark-deepseek-v41](https://github.com/sudoingX/dgx-spark-deepseek-v41) | 45 | V4.1-Flash-1017 | vLLM, EXL3 2.8 bpw | set b code / prose / structured 103.7 / 57.8 / 144.4; KLD 0.0198 |
-| [elsung/dgx-spark-deepseek-v4-flash](https://github.com/elsung/dgx-spark-deepseek-v4-flash) | 30 | V4-Flash | vLLM, FP8 | ~41 tok/s 1 stream, ~350 aggregate at 32 |
-| [r0b0tlab/deepseek-v4-flash-nvfp4-gb10-benchmark](https://github.com/r0b0tlab/deepseek-v4-flash-nvfp4-gb10-benchmark) | 13 | V4-Flash | vLLM | 38.4 tok/s 1 stream, 144.6 aggregate at 16 |
-| [HeNryous/deepseek-v41-1017-dgx-spark](https://github.com/HeNryous/deepseek-v41-1017-dgx-spark) | 6 | V4.1-Flash-1017 | vLLM image v5 (ours), EXL3 2.75 bpw | prose 56.6, code 88.9 (T=1, 2,400 MHz) |
-| [hisxo/DeepSeek-V4.1-Flash-2x-DGX-Spark](https://github.com/hisxo/DeepSeek-V4.1-Flash-2x-DGX-Spark) | 1 | V4.1-Flash | TensorFold (patched), EXL3 2.9 bpw | 1 stream code / prose / structured 113.4 / 69.3 / 145.1 |
-| [ZackO2o/DeepSeek-V4.1-Flash-TensorFold-DGXSpark-TP2](https://github.com/ZackO2o/DeepSeek-V4.1-Flash-TensorFold-DGXSpark-TP2) | 1 | V4.1-Flash | TensorFold | code 81.8 tok/s 1 stream, 150.5 aggregate at 4 |
+| Repository | Stars | Model | Engine, weights | What it publishes | Run on DGX sPLIce |
+|-|-|-|-|-|-|
+| [MiaAI-Lab/DeepSeek-v4-Flash-DSpark-2x-DGX-Spark](https://github.com/MiaAI-Lab/DeepSeek-v4-Flash-DSpark-2x-DGX-Spark) | 1,505 | V4-Flash | vLLM, DSpark | earlier model | |
+| [tonyd2wild/DeepSeek-v4-Flash-Vision-Exp-DSpark-1M-NVFP4-KV-2x-DGX-Spark](https://github.com/tonyd2wild/DeepSeek-v4-Flash-Vision-Exp-DSpark-1M-NVFP4-KV-2x-DGX-Spark) | 494 | V4-Flash | vLLM, DSpark, NVFP4 KV, 1M | earlier model | |
+| [MiaAI-Lab/DeepSeek-v4.1-Flash-1017-2x-DGX-Sparks](https://github.com/MiaAI-Lab/DeepSeek-v4.1-Flash-1017-2x-DGX-Sparks) | 372 | V4.1-Flash-1017 | TensorFold, EAQ 2.9 bpw | compared above | sparkDash, port |
+| [MiaAI-Lab/DeepSeek-v4.1-Flash-DGX-Sparks](https://github.com/MiaAI-Lab/DeepSeek-v4.1-Flash-DGX-Sparks) | 281 | V4.1-Flash | 3-4 Sparks | | |
+| [MiaAI-Lab/DeepSeek-v4.1-Flash-EXL3-2x-DGX-Sparks](https://github.com/MiaAI-Lab/DeepSeek-v4.1-Flash-EXL3-2x-DGX-Sparks) | 280 | V4.1-Flash | vLLM, EXL3 2.9 bpw | 1 stream at T=0: 40.2 tok/s | |
+| [tonyd2wild/DeepSeek-V4.1-Flash-TP2-and-TP4-DGX-Sparks](https://github.com/tonyd2wild/DeepSeek-V4.1-Flash-TP2-and-TP4-DGX-Sparks) | 154 | V4.1-Flash-1017 | TensorFold, EXL3 2.9 bpw | 73.1 tok/s at 1 user, 135.8 at 4 (8 categories), 1M | `v41bench`, same protocol |
+| [jayleaton/deepseek-v41-tensorfold-spark](https://github.com/jayleaton/deepseek-v41-tensorfold-spark) | 97 | V4.1-Flash-1017 | TensorFold, EXL3 2.8 bpw | 1M context, four slots | tool chains, same protocol |
+| [0xSero/DeepSeek-V4.1-Flash-Two-Sparks](https://github.com/0xSero/DeepSeek-V4.1-Flash-Two-Sparks) | 95 | V4.1-Flash | vLLM, EXL3 2.77 bpw | prefill 8K 2,050, 32K 2,061; code 1 stream ~39-41; 262,144 context | |
+| [Elevatormusic/DeepSeek-V4.1-Flash-1017-EXL3-TensorFold-2x-DGX-Spark](https://github.com/Elevatormusic/DeepSeek-V4.1-Flash-1017-EXL3-TensorFold-2x-DGX-Spark) | 71 | V4.1-Flash-1017 | TensorFold, EXL3 2.9 bpw | `v41_suite` and `v41_bench` | `v41_suite`, `v41_bench`, same protocol |
+| [bertholomus/deepseek-v4.1-tensorfold-tp2-2xgb10](https://github.com/bertholomus/deepseek-v4.1-tensorfold-tp2-2xgb10) | 58 | V4.1-Flash-1017 | TensorFold, EXL3 2.52 bpw | compared above | `kit_bench`, same protocol |
+| [sudoingX/dgx-spark-deepseek-v41](https://github.com/sudoingX/dgx-spark-deepseek-v41) | 45 | V4.1-Flash-1017 | vLLM, EXL3 2.8 bpw | set b code / prose / structured 103.7 / 57.8 / 144.4; KLD 0.0198 | `kit_bench` set b, same protocol |
+| [Blackwellboy/DeepSeek-V4.1-Flash-1017-BLACKFOLD-TP2](https://github.com/Blackwellboy/DeepSeek-V4.1-Flash-1017-BLACKFOLD-TP2) | 41 | V4.1-Flash-1017 | TensorFold, EXL3 2.9 bpw | `kit_bench` set b, `v41bench` | both, same protocol |
+| [elsung/dgx-spark-deepseek-v4-flash](https://github.com/elsung/dgx-spark-deepseek-v4-flash) | 30 | V4-Flash | vLLM, FP8 | ~41 tok/s 1 stream, ~350 aggregate at 32 | |
+| [r0b0tlab/deepseek-v4-flash-nvfp4-gb10-benchmark](https://github.com/r0b0tlab/deepseek-v4-flash-nvfp4-gb10-benchmark) | 13 | V4-Flash | vLLM | 38.4 tok/s 1 stream, 144.6 aggregate at 16 | |
+| [gpdev-Pilcothink/DGX_Spark_vllm_Dockerfile](https://github.com/gpdev-Pilcothink/DGX_Spark_vllm_Dockerfile) (PILCOTHINK) | 11 | V4.1-Flash-1017 | vLLM 0.32.1, EXL3 2.9 bpw | llama-benchy, forum 386574 | llama-benchy, same tool (settings differ) |
+| [HeNryous/deepseek-v41-1017-dgx-spark](https://github.com/HeNryous/deepseek-v41-1017-dgx-spark) | 6 | V4.1-Flash-1017 | vLLM image v5 (ours), EXL3 2.75 bpw | prose 56.6, code 88.9 (T=1, 2,400 MHz) | 3-code needle and `kit_bench` set b, same protocol; `fair_bench`, port |
+| [hisxo/DeepSeek-V4.1-Flash-2x-DGX-Spark](https://github.com/hisxo/DeepSeek-V4.1-Flash-2x-DGX-Spark) | 1 | V4.1-Flash | TensorFold (patched), EXL3 2.9 bpw | 1 stream code / prose / structured 113.4 / 69.3 / 145.1 | |
+| [ZackO2o/DeepSeek-V4.1-Flash-TensorFold-DGXSpark-TP2](https://github.com/ZackO2o/DeepSeek-V4.1-Flash-TensorFold-DGXSpark-TP2) | 1 | V4.1-Flash | TensorFold | code 81.8 tok/s 1 stream, 150.5 aggregate at 4 | |
 
 Builds that serve more streams (8-32) need a larger `max-num-seqs` than our production uses; those rows will be run in a
 separate configuration and labelled as such.
+
+## Known issues
+
+**Forced tool calls can return HTTP 500 on vLLM's DeepSeek V4.1 tool path.** Seen on vLLM 0.31.1.dev0 (the v5 image)
+with `--tool-call-parser deepseek_v41` and the default structured-outputs backend. Status: fix built and tested offline;
+production install pending.
+
+- **Symptom.** A request with `tool_choice: "required"` or a named function
+  (`{"type": "function", "function": {"name": ...}}`) fails with HTTP 500 before any token is generated, and the engine
+  keeps serving. `strict: true` tools in `auto` mode fail the same way. The serve log shows `KeyError: 'triggers'` in
+  `serialize_guidance_grammar` (`vllm/v1/structured_output/backend_guidance.py`). Ordinary `auto` tool calls with
+  non-strict tools are not affected.
+- **Cause.** The V1 engine creates one structured-outputs backend per start, from the first structured-output request
+  it sees, and keeps it until shutdown. Under the default `auto` backend, a JSON schema that xgrammar refuses and
+  guidance accepts (a string `pattern` with `minLength`/`maxLength`, or an integer `multipleOf`) pins guidance. The V4.1
+  tool path builds xgrammar's `deepseek_v4_1` structural tag in the newer `format` shape, and guidance's serializer
+  reads only the older `structures` / `triggers` shape. If an xgrammar-valid structured request comes first instead,
+  forced tool calls work until the next restart, so the failure depends on request order.
+- **Workaround.** Start vLLM with `--structured-outputs-config.backend xgrammar` (or
+  `--structured-outputs-config '{"backend":"xgrammar"}'`). Forced and strict tool calls then compile and keep the
+  model's own DSML call format. Trade-off: JSON schemas xgrammar cannot compile, such as a `pattern` combined with
+  `minLength`/`maxLength` or a `multipleOf`, get a clean HTTP 400 instead of being served by guidance.
+- **Also worth knowing.** If xgrammar happened to be pinned first under `auto`, a `pattern` + `maxLength` schema compiles
+  on xgrammar with its length bound dropped (a log warning, not an error). `VLLM_ENFORCE_STRICT_TOOL_CALLING=0` also
+  avoids the 500, but forced calls are then generated as JSON instead of DSML, and `strict` is ignored.
+
+Two of Elevatormusic's twelve `v41_suite` tool checks are exactly these forced-choice cases; they are our 10/12 above.
 
 ## Reproduce
 
@@ -173,11 +355,20 @@ python3 -I tools/sparkbench.py --url http://<head>:8000 --out runs/my-sparks.jso
 python3 -I tools/bench.py plan --profile all
 python3 -I tools/bench.py run --profile all --url http://<head>:8000 --exact-size \
     --label my-sparks --note "clock 2300, commit ..." --out runs/my-sparks-bench.json
+# llama-benchy 0.4.0 (PyPI), the three tables above; --tokenizer is the model's tokenizer (a local copy or HF id)
+pip install llama-benchy==0.4.0
+llama-benchy --base-url http://<head>:8000/v1 --model <served model> --tokenizer <tokenizer> --runs 3 \
+    --pp 2048 --tg 32 --depth 0 4096 8192 16384 32768 65536 131072 --latency-mode generation --no-cache
+llama-benchy ... --pp 2048 --tg 128 --depth 0 4096 8192 --concurrency 1 2 4 --latency-mode generation --no-cache
+llama-benchy ... --pp 2048 --tg 128 1024 --depth 0 1024 4096
 ```
 
-Both tools use only the Python standard library and talk to any OpenAI-compatible server. Lock the GPU clock first
+Our two tools, `sparkbench.py` and `bench.py`, use only the Python standard library and talk to any OpenAI-compatible
+server. Lock the GPU clock first
 (`sudo nvidia-smi -lgc 0,2300` on both Sparks) and record it with the result; `tools/node_watch.py` logs clocks,
-temperatures and free memory during a run. Please send results as a
+temperatures and free memory during a run. Our llama-benchy runs went through a local proxy that gave every request a
+fresh `cache_salt` and a unique first line; without one, turn the server's prefix cache off to measure on the same
+basis. Please send results as a
 [performance report](https://github.com/ProprietaryLegal/DeepSeek-V4.1-Flash-2xDGX-Spark-x86-offload/issues/new?template=performance_report.yml).
 
 ## Our own cells: long legal prompts at T=1, thinking on
@@ -220,6 +411,29 @@ What the shipped configuration admits, and the memory it leaves free. The values
 
 Without the x86 drafter the KV pool has to go back to 3.75 GiB per rank (989,460 tokens): the local drafter has not been
 tested with more, and `serve.sh` refuses the combination.
+
+## Where the prefill time goes
+
+A kernel census of a cold 31,633-token prompt (four prefill chunks of up to 8,192 tokens) on 2026-10-31: production
+`ebc29ed8` restarted with vLLM's torch profiler configured and nothing else changed, 2,300 MHz cap, 3 profiled requests
+and 3 unprofiled controls. The profiler records events and launches no kernel; profiled requests' first output matched
+their controls'. Control time to first token 12.32 s, profiled 12.33 s: the profiler added 0.08 %.
+
+| Kernel group | ms, mean of the two ranks | Share of the time to first token |
+|-|-|-|
+| MoE experts | 5,852 | 47.5 % |
+| norms and elementwise | 2,094 | 17.0 % |
+| attention (prefill) | 1,614 | 13.1 % |
+| dense GEMM | 1,604 | 13.0 % |
+| all-reduce | 790 | 6.4 % |
+| all-reduce wait | 142 | 1.1 % |
+| EXL3 GEMM | 93 | 0.8 % |
+| every other line (host, device and drafter waits, sampler, rest) | | 0.6 % or less each |
+
+Reading the routed experts dominates prefill, as it dominates decode. Waiting on the x86 drafter costs prefill about
+3 ms. A 150K census was attempted in the same window, but its traces did not cover every prefill chunk, so it is not
+published.
+Per-chunk timelines: [docs/measurements.md](docs/measurements.md#where-the-prefill-time-goes-2026-10-31-census-cold-32k).
 
 ## Architecture
 
@@ -264,7 +478,7 @@ paths and the measured effect of each.
 | weights | [HeNryous 2.75 bpw](https://huggingface.co/HeNryous/DeepSeek-V4.1-Flash-1017-EXL3-2.75bpw-DGX-Spark) rev `86f85253`, or the [legal-weighted allocation](https://huggingface.co/ProprietaryLegal/DeepSeek-V4.1-Flash-1017-EXL3-2.75bpw-LegalWeighted-DGX-Spark) of it that we serve (same size and format), plus DeepSeek's two Engram shards |
 | tools | Python 3.10+ (stdlib only for `tools/`), Docker with the NVIDIA runtime, key-based ssh between the nodes |
 
-Without the x86 host the stack still runs as a plain two-Spark serve: leave `OFFLOAD_DOCKER_ENV` and
+Without the x86 host DGX sPLIce still runs as a plain two-Spark serve: leave `OFFLOAD_DOCKER_ENV` and
 `OFFLOAD_DSPARK_ENV` empty in `dsv41.env`, and the KV pool has to go back to 3.75 GiB per rank.
 
 ## Full build
@@ -326,7 +540,7 @@ commit ships matches its byte pins; see [docs/publication.md](docs/publication.m
 
 ## Related repositories
 
-This repository is the full stack. The research archive and the earlier single-component repositories stay up for their
+This repository is the full DGX sPLIce build. The research archive and the earlier single-component repositories stay up for their
 history and their own tests; their code is included here as it runs in production.
 
 | Repository | What it holds |
@@ -342,7 +556,7 @@ history and their own tests; their code is included here as it runs in productio
 
 ## Credits and licence
 
-This stack stands on other people's work: DeepSeek's model, DSpark drafter and Engram; HeNryous's 2.75 bpw weights,
+DGX sPLIce stands on other people's work: DeepSeek's model, DSpark drafter and Engram; HeNryous's 2.75 bpw weights,
 serving image and patch series; the vLLM project; turboderp's exllamav3; sudoingX's launcher, EXL3 MoE plugin, KLD tool
 and panel; TensorFold and bertholomus's fork of it; MiaAI-Lab's sparkDash protocol; and the kernel donors listed in
 [CREDITS.md](CREDITS.md). If you build on this repository, please credit those projects as well.

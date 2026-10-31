@@ -6,10 +6,13 @@ project's, the section says so and links its source.
 
 | Section | What it holds |
 |-|-|
-| [sparkDash protocol, 2026-10-31](#sparkdash-protocol-2026-10-31) | MiaAI's sparkDash tests on our stack: decode at 1-4 streams, every repeat, prefill 4K-256K, deep-context decode, a short request behind a long prompt, clocks and temperatures |
+| [sparkDash protocol, 2026-10-31](#sparkdash-protocol-2026-10-31) | MiaAI's sparkDash tests on DGX sPLIce: decode at 1-4 streams, every repeat, prefill 4K-256K, deep-context decode, a short request behind a long prompt, clocks and temperatures |
 | [Quality: KL divergence against the original model](#quality-kl-divergence-against-the-original-model) | KLD and top-1 agreement by domain, both panels, both weight sets |
 | [Speed record, 2026-10-28](#speed-record-2026-10-28-production-a0006fc) | our own cells: temperature 1, thinking on, 512 tokens, court-opinion prompts up to 150K |
-| [Persistent prefix tier](#persistent-prefix-tier-2026-10-30-and-2026-10-31-production-ebc29ed8) | reload of a long prompt from NVMe, fault cases, the first reload after a restart in production |
+| [Persistent prefix tier](#persistent-prefix-tier-2026-10-30-and-2026-10-31-production-ebc29ed8) | reload of a long prompt from NVMe, fault cases, reloads after production restarts |
+| [Where the prefill time goes](#where-the-prefill-time-goes-2026-10-31-census-cold-32k) | kernel census of a cold 32K prompt on production: every line, both ranks, every chunk |
+| [The other builds' own benchmarks](comparison.md#the-other-builds-own-benchmarks-2026-10-31) | kit_bench, v41bench, v41_suite, v41_bench, fair_bench, needles and tool checks run on DGX sPLIce, 2026-10-31 (in comparison.md) |
+| [llama-benchy 0.4.0](../README.md#llama-benchy-040) | the standard, concurrency and PILCOTHINK-grid tables, 2026-10-31 (in the README) |
 | [Capacity](#capacity-engine-log), [configuration history](#configuration-history-2026-10-22-and-2026-10-23) and [decode profile](#where-the-decode-time-goes-2026-10-26-profile-2150-mhz) | what each offload piece changed, and where a decode round's time goes |
 
 ## sparkDash protocol, 2026-10-31
@@ -299,6 +302,13 @@ First reload after a restart in production, 2026-10-31: on the first request aft
 empty), 102,528 of the request's 107,821 prompt tokens (95.1 %) were read back from the NVMe tier instead of being
 prefilled again, with 0 read misses. Counts only: it was private traffic, so no timing or content is published.
 
+Reload across production restarts, 2026-10-31, on a synthetic test prompt: a 5,050-token prompt, tagged for storage, was
+sent at 06:21 UTC with nothing cached (0 cached tokens; 10.2 s). Production then restarted twice: into the profiler
+configuration of the [prefill census](#where-the-prefill-time-goes-2026-10-31-census-cold-32k) and back at 09:27 UTC.
+At 10:56 UTC the same prompt was sent again: 4,992 of its 5,050 prompt tokens (98.9 %) came from the persistent tier,
+and the request took 2.0 s, with 0 refused requests and 0 retries. Both requests ran with thinking off and at most 256
+output tokens; the times are whole-request wall times, not times to first token.
+
 ## Capacity (engine log)
 
 KV pool 6 GiB per rank (46,603 blocks). The engine admits 1,934,490 tokens, the same on `a0006fc` and `ebc29ed8`, so
@@ -336,3 +346,52 @@ of the time:
 | Engram | 0.02 ms | 0.03 ms |
 
 Reading the routed experts' weights dominates, and more so as streams are added. The remote drafter's share is small.
+
+## Where the prefill time goes (2026-10-31 census, cold 32K)
+
+Conditions: production `ebc29ed8` restarted with vLLM's torch profiler configured and nothing else changed (the profiler
+records events and launches no kernel), both Sparks at a 2,300 MHz cap, chunked prefill 8,192. One cold 31,633-token
+prompt, prefilled in four chunks (3 x 8,188 and 7,069 tokens), temperature 0, a fresh cache salt on every request and 0
+cached tokens. Three profiled requests (1 output token) alternated with three unprofiled controls (512 output tokens);
+every profiled request's first output piece matched the controls'. Median time to first token: controls 12,319.25 ms,
+profiled 12,328.52 ms, so the profiler added 9.3 ms (0.08 %), all of it on host-side lines.
+
+Each line is kernel time on one rank, the median of the three profiled requests; "both ranks" is the mean of the two
+ranks, and the share is of the controls' median time to first token. "Corrected" takes the profiler's own 9.3 ms out of
+the host-side lines.
+
+| Line | both ranks, ms | corrected ms | share | rank 0 ms | rank 1 ms |
+|-|-|-|-|-|-|
+| MoE experts | 5,852.2 | 5,852.2 | 47.5 % | 5,854.4 | 5,850.0 |
+| norms and elementwise | 2,094.2 | 2,094.2 | 17.0 % | 2,118.2 | 2,070.2 |
+| attention (prefill) | 1,613.7 | 1,613.7 | 13.1 % | 1,614.9 | 1,612.6 |
+| dense GEMM | 1,604.3 | 1,604.3 | 13.0 % | 1,604.9 | 1,603.7 |
+| all-reduce | 789.7 | 789.7 | 6.4 % | 780.6 | 798.9 |
+| all-reduce wait | 141.7 | 141.7 | 1.1 % | 145.7 | 137.6 |
+| EXL3 GEMM | 93.0 | 93.0 | 0.8 % | 94.0 | 91.9 |
+| outside the engine steps | 80.9 | 74.6 | 0.6 % | | |
+| other kernels | 59.4 | 59.4 | 0.5 % | 57.2 | 61.7 |
+| device wait | 21.2 | 21.2 | 0.2 % | 21.1 | 21.3 |
+| waiting on the x86 drafter | 2.8 | 2.8 | 0.0 % | 5.5 | 0.0 |
+| host gap | 3.0 | 0.0 | 0.0 % | 3.3 | 2.7 |
+| sampler, unrecorded waits | 0.0 | 0.0 | 0.0 % | 0.0 | 0.0 |
+
+Rank imbalance: the two ranks' all-reduce waits for each other add up to 0.28 s (2.3 % of the time to first token).
+That is the most that matching the slower rank to the faster one could save; it sits inside the all-reduce wait line
+above, not on top of it.
+
+Per-chunk timeline of the median profiled request (the second of three), rank 0 / rank 1, ms:
+
+| Chunk | tokens | prompt end | period | busy | MoE | EXL3 | dense GEMM | attention | all-reduce | all-reduce wait | norms, elementwise | host gap | all-reduces |
+|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
+| 0 | 8,188 | 8,188 | 3141/3139 | 3132/3132 | 1498/1496 | 20/20 | 413/417 | 402/403 | 208/210 | 28/29 | 547/538 | 3/3 | 41 |
+| 1 | 8,188 | 16,376 | 3139/3139 | 3133/3134 | 1482/1477 | 20/20 | 415/419 | 418/422 | 200/203 | 36/37 | 548/539 | 0/0 | 41 |
+| 2 | 8,188 | 24,564 | 3153/3153 | 3146/3148 | 1502/1477 | 20/19 | 414/422 | 417/427 | 200/204 | 33/42 | 547/539 | 0/0 | 41 |
+| 3 | 7,069 | 31,633 | 2816/2816 | 2809/2808 | 1372/1375 | 34/34 | 356/349 | 364/368 | 175/181 | 21/29 | 474/460 | 0/0 | 81 |
+
+In the first profiled request, chunk 1 took 3,754 ms instead of about 3,140: rank 0's MoE kernels took 2,018 ms against
+rank 1's 1,512, and rank 1 waited 613 ms in all-reduce. That request's time to first token, 13.05 s, is the high one of
+the three (12.33 and 12.30 s for the others); the other two requests have no such chunk.
+
+A 150K census (19 chunks) was attempted in the same window. Two traced requests covered chunks 0-14 between them and the
+third capture was skipped, so chunks 15-18 have no trace; no 150K census is published.
